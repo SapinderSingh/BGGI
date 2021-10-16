@@ -7,5 +7,8 @@ class RouteConstants {
       contactScreen = '/contact-screen',
       academicsScreen = '/academics-screen',
       coursesScreen = '/courses-screen',
-      viewProfileScreen = '/view-profile-screen';
+      viewProfileScreen = '/view-profile-screen',
+      syllabusScreen = '/syllabus-screen',
+      facultyScreen = '/faculty-screen',
+      downloadScreen = '/download-screen';
 }

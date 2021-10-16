@@ -2,6 +2,7 @@
 
 import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/screens/about_screen.dart';
+import 'package:bgiet/screens/academics_screen.dart';
 import 'package:bgiet/screens/contact_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
 import 'package:bgiet/screens/home.dart';
@@ -22,6 +23,8 @@ class RouteHelper {
         return _pageGenerator(ViewProfileScreen());
       case RouteConstants.contactScreen:
         return _pageGenerator(ContactScreen());
+      case RouteConstants.academicsScreen:
+        return _pageGenerator(AcademicsScreen());
       default:
         return _pageGenerator(UnknownScreen());
     }
