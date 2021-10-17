@@ -33,7 +33,7 @@ class MainDrawer extends StatelessWidget {
                         ),
                         child: Text('View Profile'),
                       ),
-                      DrawerTile(
+                      _DrawerTile(
                         name: listOfTiles[i].name,
                         routeName: listOfTiles[i].routeName,
                       ),
@@ -41,7 +41,7 @@ class MainDrawer extends StatelessWidget {
                   ),
                 );
               } else {
-                return DrawerTile(
+                return _DrawerTile(
                   name: listOfTiles[i].name,
                   routeName: listOfTiles[i].routeName,
                 );
@@ -54,10 +54,10 @@ class MainDrawer extends StatelessWidget {
   }
 }
 
-class DrawerTile extends StatelessWidget {
+class _DrawerTile extends StatelessWidget {
   final String name;
   final String routeName;
-  const DrawerTile({
+  const _DrawerTile({
     required this.name,
     required this.routeName,
     Key? key,
