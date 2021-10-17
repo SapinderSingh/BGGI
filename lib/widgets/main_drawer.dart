@@ -15,7 +15,7 @@ class MainDrawer extends StatelessWidget {
       child: Drawer(
         child: Column(
           children: List.generate(
-            listOfTiles.length,
+            listOfDrawerTiles.length,
             (int i) {
               if (i == 0) {
                 return SafeArea(
@@ -34,16 +34,16 @@ class MainDrawer extends StatelessWidget {
                         child: Text('View Profile'),
                       ),
                       _DrawerTile(
-                        name: listOfTiles[i].name,
-                        routeName: listOfTiles[i].routeName,
+                        name: listOfDrawerTiles[i].name,
+                        routeName: listOfDrawerTiles[i].routeName,
                       ),
                     ],
                   ),
                 );
               } else {
                 return _DrawerTile(
-                  name: listOfTiles[i].name,
-                  routeName: listOfTiles[i].routeName,
+                  name: listOfDrawerTiles[i].name,
+                  routeName: listOfDrawerTiles[i].routeName,
                 );
               }
             },

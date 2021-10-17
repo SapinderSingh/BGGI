@@ -6,6 +6,8 @@ import 'package:bgiet/screens/academics_screen.dart';
 import 'package:bgiet/screens/contact_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
 import 'package:bgiet/screens/home.dart';
+import 'package:bgiet/screens/settings_screen.dart';
+import 'package:bgiet/screens/syllabus_screen.dart';
 import 'package:bgiet/screens/unknown_screen.dart';
 import 'package:bgiet/screens/view_profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,10 @@ class RouteHelper {
         return _pageGenerator(ContactScreen());
       case RouteConstants.academicsScreen:
         return _pageGenerator(AcademicsScreen());
+      case RouteConstants.settingsScreen:
+        return _pageGenerator(SettingsScreen());
+      case RouteConstants.syllabusScreen:
+        return _pageGenerator(SyllabusScreen());
       default:
         return _pageGenerator(UnknownScreen());
     }

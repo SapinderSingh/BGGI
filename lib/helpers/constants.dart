@@ -10,5 +10,6 @@ class RouteConstants {
       viewProfileScreen = '/view-profile-screen',
       syllabusScreen = '/syllabus-screen',
       facultyScreen = '/faculty-screen',
-      downloadScreen = '/download-screen';
+      downloadScreen = '/download-screen',
+      settingsScreen = '/settings-screen';
 }

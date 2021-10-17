@@ -9,14 +9,10 @@ class DrawerTile {
   });
 }
 
-final List<DrawerTile> listOfTiles = [
+final List<DrawerTile> listOfDrawerTiles = [
   DrawerTile(
     name: "Home",
     routeName: '/',
-  ),
-  DrawerTile(
-    name: "About Us",
-    routeName: RouteConstants.aboutScreen,
   ),
   DrawerTile(
     name: "Academics",
@@ -31,10 +27,15 @@ final List<DrawerTile> listOfTiles = [
     routeName: RouteConstants.studentLifeScreen,
   ),
   DrawerTile(
+    name: "Settings",
+    routeName: RouteConstants.settingsScreen,
+  ),
+  DrawerTile(
+    name: "About Us",
+    routeName: RouteConstants.aboutScreen,
+  ),
+  DrawerTile(
     name: "Contact Us",
     routeName: RouteConstants.contactScreen,
   ),
-  // DrawerTile(name:"Settings", routeName: RouteConstants.settingsScreen,),
-  // "Settings",
-  // "Contact",
 ];
