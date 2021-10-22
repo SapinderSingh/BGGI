@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/models/courses_model.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class CoursesScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (_, index) => _CoursesListItem(
-          name: Course.listOfCourses[index].name,
+          courseName: Course.listOfCourses[index].name,
         ),
         separatorBuilder: (_, __) => Divider(),
         itemCount: Course.listOfCourses.length,
@@ -24,16 +25,20 @@ class CoursesScreen extends StatelessWidget {
 }
 
 class _CoursesListItem extends StatelessWidget {
-  final String name;
+  final String courseName;
   const _CoursesListItem({
     Key? key,
-    required this.name,
+    required this.courseName,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(name),
+      onTap: () => Navigator.of(context).pushNamed(
+        RouteConstants.courseDescriptionScreen,
+        arguments: courseName,
+      ),
+      title: Text(courseName),
     );
   }
 }

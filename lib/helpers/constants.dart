@@ -11,5 +11,6 @@ class RouteConstants {
       syllabusScreen = '/syllabus-screen',
       facultyScreen = '/faculty-screen',
       downloadScreen = '/download-screen',
-      settingsScreen = '/settings-screen';
+      settingsScreen = '/settings-screen',
+      courseDescriptionScreen = 'course-description-screen';
 }

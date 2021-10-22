@@ -9,7 +9,7 @@ class Course {
 
   static final List<Course> _listOfCourses = [
     Course(
-      name: '	B.Tech [Electronics & Communication Engineering]',
+      name: 'B.Tech [Electronics & Communication Engineering]',
       syllabusLink:
           'https://ptu.ac.in/wp-content/uploads/2021/08/New_Final_B.pdf',
     ),

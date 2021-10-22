@@ -14,20 +14,20 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
   String? _selectedValue;
   String _courseSyllabusUrl = '';
 
-  final TextEditingController _syllabusController = TextEditingController();
+  final TextEditingController _syllabusTextController = TextEditingController();
 
   @override
   void dispose() {
-    _syllabusController.dispose();
+    _syllabusTextController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     if (_selectedValue == null) {
-      _syllabusController.text = '';
+      _syllabusTextController.text = '';
     } else {
-      _syllabusController.text = _selectedValue!;
+      _syllabusTextController.text = _selectedValue!;
     }
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +43,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
               autocorrect: false,
               autofocus: false,
               readOnly: true,
-              controller: _syllabusController,
+              controller: _syllabusTextController,
               onTap: () => _openSelectionDialog(context),
               decoration: const InputDecoration(
                 hintText: 'Select Course',

@@ -4,6 +4,7 @@ import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/screens/about_screen.dart';
 import 'package:bgiet/screens/academics_screen.dart';
 import 'package:bgiet/screens/contact_screen.dart';
+import 'package:bgiet/screens/course_description_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
 import 'package:bgiet/screens/home.dart';
 import 'package:bgiet/screens/settings_screen.dart';
@@ -13,8 +14,8 @@ import 'package:bgiet/screens/view_profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class RouteHelper {
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    switch (settings.name) {
+  static Route<dynamic> onGenerateRoute(RouteSettings _settings) {
+    switch (_settings.name) {
       case RouteConstants.aboutScreen:
         return _pageGenerator(AboutScreen());
       case '/':
@@ -31,6 +32,9 @@ class RouteHelper {
         return _pageGenerator(SettingsScreen());
       case RouteConstants.syllabusScreen:
         return _pageGenerator(SyllabusScreen());
+      case RouteConstants.courseDescriptionScreen:
+        final String _name = _settings.arguments as String;
+        return _pageGenerator(CourseDescriptionScreen(name: _name));
       default:
         return _pageGenerator(UnknownScreen());
     }
