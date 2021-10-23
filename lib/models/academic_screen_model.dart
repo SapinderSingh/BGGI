@@ -41,10 +41,5 @@ class AcademicScreenModel {
       routeName: RouteConstants.facultyScreen,
       url: null,
     ),
-    AcademicScreenModel(
-      name: "Downloads",
-      routeName: RouteConstants.downloadScreen,
-      url: null,
-    ),
   ];
 }

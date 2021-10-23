@@ -19,8 +19,8 @@ final List<DrawerTile> listOfDrawerTiles = [
     routeName: RouteConstants.academicsScreen,
   ),
   DrawerTile(
-    name: "Admissions",
-    routeName: RouteConstants.admissionsScreen,
+    name: "Downloads",
+    routeName: RouteConstants.downloadsScreen,
   ),
   DrawerTile(
     name: "Student Life",

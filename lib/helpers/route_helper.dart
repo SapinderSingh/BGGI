@@ -6,6 +6,7 @@ import 'package:bgiet/screens/academics_screen.dart';
 import 'package:bgiet/screens/contact_screen.dart';
 import 'package:bgiet/screens/course_description_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
+import 'package:bgiet/screens/downloads_screen.dart';
 import 'package:bgiet/screens/home.dart';
 import 'package:bgiet/screens/settings_screen.dart';
 import 'package:bgiet/screens/syllabus_screen.dart';
@@ -32,6 +33,8 @@ class RouteHelper {
         return _pageGenerator(SettingsScreen());
       case RouteConstants.syllabusScreen:
         return _pageGenerator(SyllabusScreen());
+      case RouteConstants.downloadsScreen:
+        return _pageGenerator(DownloadsScreen());
       case RouteConstants.courseDescriptionScreen:
         final String _name = _settings.arguments as String;
         return _pageGenerator(CourseDescriptionScreen(name: _name));
