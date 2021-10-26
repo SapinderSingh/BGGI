@@ -31,6 +31,10 @@ final List<DrawerTile> listOfDrawerTiles = [
     routeName: RouteConstants.settingsScreen,
   ),
   DrawerTile(
+    name: "PTU Exam",
+    routeName: RouteConstants.ptuExamWebView,
+  ),
+  DrawerTile(
     name: "About Us",
     routeName: RouteConstants.aboutScreen,
   ),

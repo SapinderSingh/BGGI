@@ -8,6 +8,7 @@ import 'package:bgiet/screens/course_description_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
 import 'package:bgiet/screens/downloads_screen.dart';
 import 'package:bgiet/screens/home.dart';
+import 'package:bgiet/screens/ptu_exam_webview.dart';
 import 'package:bgiet/screens/settings_screen.dart';
 import 'package:bgiet/screens/syllabus_screen.dart';
 import 'package:bgiet/screens/unknown_screen.dart';
@@ -38,6 +39,8 @@ class RouteHelper {
       case RouteConstants.courseDescriptionScreen:
         final String _name = _settings.arguments as String;
         return _pageGenerator(CourseDescriptionScreen(name: _name));
+      case RouteConstants.ptuExamWebView:
+        return _pageGenerator(PTUExamWebView());
       default:
         return _pageGenerator(UnknownScreen());
     }

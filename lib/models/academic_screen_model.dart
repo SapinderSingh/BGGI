@@ -36,10 +36,5 @@ class AcademicScreenModel {
       routeName: RouteConstants.syllabusScreen,
       url: null,
     ),
-    AcademicScreenModel(
-      name: "BGIET Faculty",
-      routeName: RouteConstants.facultyScreen,
-      url: null,
-    ),
   ];
 }
