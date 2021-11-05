@@ -1,8 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
+import 'package:bgiet/widgets/carsoul_slider.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -13,12 +11,27 @@ class Home extends StatelessWidget {
       YoutubePlayerController(
     initialVideoId:
         'QitBHMpGn_Q', // URL: https://www.youtube.com/watch?v=QitBHMpGn_Q
-    flags: YoutubePlayerFlags(
+    flags: const YoutubePlayerFlags(
       controlsVisibleAtStart: true,
       autoPlay: false,
       mute: false,
     ),
   );
+
+  final List<Image> _listOfImages = [
+    Image.asset(
+      'assets/images/1.jpg',
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      'assets/images/2.jpg',
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      'assets/images/lib1.jpg',
+      fit: BoxFit.cover,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,33 +40,11 @@ class Home extends StatelessWidget {
         context: context,
         title: 'Home',
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       body: ListView(
         children: [
-          CarouselSlider(
-            items: [
-              Image.asset(
-                'assets/images/1.jpg',
-                fit: BoxFit.cover,
-              ),
-              Image.asset(
-                'assets/images/2.jpg',
-                fit: BoxFit.cover,
-              ),
-              Image.asset(
-                'assets/images/lib1.jpg',
-                fit: BoxFit.cover,
-              ),
-            ],
-            options: CarouselOptions(
-              autoPlayCurve: Curves.easeOutBack,
-              enlargeCenterPage: true,
-              autoPlay: true,
-              autoPlayInterval: Duration(seconds: 2),
-              pauseAutoPlayInFiniteScroll: false,
-            ),
-          ),
-          SizedBox(
+          customCarouselSlider(_listOfImages),
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -108,7 +99,7 @@ class Home extends StatelessWidget {
               showVideoProgressIndicator: true,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ],
