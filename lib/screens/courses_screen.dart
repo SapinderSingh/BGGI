@@ -15,6 +15,7 @@ class CoursesScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (_, index) => CustomListTile(
+          toBeReplaced: false,
           title: Course.listOfCourses[index].name,
           isLink: false,
           haveTrailingIcon: false,

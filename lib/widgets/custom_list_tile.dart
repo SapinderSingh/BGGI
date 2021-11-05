@@ -9,17 +9,20 @@ class CustomListTile extends StatelessWidget {
     required this.haveTrailingIcon,
     required this.isLink,
     required this.placeToGoTo,
+    required this.toBeReplaced,
   }) : super(key: key);
 
   final String title, placeToGoTo;
 
-  final bool haveTrailingIcon, isLink;
+  final bool haveTrailingIcon, isLink, toBeReplaced;
   @override
   Widget build(BuildContext context) {
     return ListTile(
       onTap: isLink
           ? () => _launchURL(placeToGoTo)
-          : () => Navigator.of(context).pushNamed(placeToGoTo),
+          : () => toBeReplaced
+              ? Navigator.of(context).pushReplacementNamed(placeToGoTo)
+              : Navigator.of(context).pushNamed(placeToGoTo),
       title: Text(
         title,
         style: TextStyle(

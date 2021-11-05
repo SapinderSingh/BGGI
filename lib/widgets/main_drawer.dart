@@ -31,6 +31,7 @@ class MainDrawer extends StatelessWidget {
                       child: Text('View Profile'),
                     ),
                     CustomListTile(
+                      toBeReplaced: true,
                       isLink: false,
                       haveTrailingIcon: false,
                       title: listOfDrawerTiles[i].name,
@@ -41,6 +42,7 @@ class MainDrawer extends StatelessWidget {
               );
             } else {
               return CustomListTile(
+                toBeReplaced: true,
                 isLink: false,
                 haveTrailingIcon: false,
                 title: listOfDrawerTiles[i].name,

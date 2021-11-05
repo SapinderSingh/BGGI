@@ -22,12 +22,14 @@ class AcademicsScreen extends StatelessWidget {
         itemBuilder: (_, index) =>
             _listOfAcademicsTiles[index].routeName == null
                 ? CustomListTile(
+                    toBeReplaced: false,
                     haveTrailingIcon: true,
                     isLink: true,
                     placeToGoTo: _listOfAcademicsTiles[index].url!,
                     title: _listOfAcademicsTiles[index].name,
                   )
                 : CustomListTile(
+                    toBeReplaced: false,
                     title: _listOfAcademicsTiles[index].name,
                     haveTrailingIcon: true,
                     isLink: false,

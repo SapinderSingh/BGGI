@@ -18,6 +18,7 @@ class DownloadsScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (_, i) => CustomListTile(
+          toBeReplaced: false,
           title: listOfDownloads[i].name,
           placeToGoTo: listOfDownloads[i].url,
           isLink: true,
