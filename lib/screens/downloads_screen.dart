@@ -2,6 +2,7 @@ import 'package:bgiet/models/download_model.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/custom_list_tile.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
+import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:flutter/material.dart';
 
 class DownloadsScreen extends StatelessWidget {
@@ -16,16 +17,18 @@ class DownloadsScreen extends StatelessWidget {
         context: context,
         title: 'Downloads',
       ),
-      body: ListView.separated(
-        itemBuilder: (_, i) => CustomListTile(
-          toBeReplaced: false,
-          title: listOfDownloads[i].name,
-          placeToGoTo: listOfDownloads[i].url,
-          isLink: true,
-          haveTrailingIcon: true,
+      body: pressBackAgainToClose(
+        child: ListView.separated(
+          itemBuilder: (_, i) => CustomListTile(
+            toBeReplaced: false,
+            title: listOfDownloads[i].name,
+            placeToGoTo: listOfDownloads[i].url,
+            isLink: true,
+            haveTrailingIcon: true,
+          ),
+          separatorBuilder: (_, __) => const Divider(),
+          itemCount: listOfDownloads.length,
         ),
-        separatorBuilder: (_, __) => const Divider(),
-        itemCount: listOfDownloads.length,
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:bgiet/widgets/carsoul_slider.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
+import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:flutter/material.dart';
 
 class StudentLifeScreen extends StatelessWidget {
@@ -81,25 +82,27 @@ class StudentLifeScreen extends StatelessWidget {
         title: 'Student Life',
         context: context,
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(10),
-        children: [
-          Text(
-            'Athletics & Recreation',
-            style: Theme.of(context).primaryTextTheme.headline6,
-          ),
-          const SizedBox(height: 10),
-          customCarouselSlider(_listOfAthleticImages),
-          const SizedBox(height: 20),
-          Text(
-            'Housing & Dining',
-            style: Theme.of(context).primaryTextTheme.headline6,
-          ),
-          const SizedBox(height: 10),
-          customCarouselSlider(_listOfHousingImages),
-          const SizedBox(height: 20),
-          customCarouselSlider(_listOfDiningImages),
-        ],
+      body: pressBackAgainToClose(
+        child: ListView(
+          padding: const EdgeInsets.all(10),
+          children: [
+            Text(
+              'Athletics & Recreation',
+              style: Theme.of(context).primaryTextTheme.headline6,
+            ),
+            const SizedBox(height: 10),
+            customCarouselSlider(_listOfAthleticImages),
+            const SizedBox(height: 20),
+            Text(
+              'Housing & Dining',
+              style: Theme.of(context).primaryTextTheme.headline6,
+            ),
+            const SizedBox(height: 10),
+            customCarouselSlider(_listOfHousingImages),
+            const SizedBox(height: 20),
+            customCarouselSlider(_listOfDiningImages),
+          ],
+        ),
       ),
     );
   }
