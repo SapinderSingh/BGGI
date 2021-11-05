@@ -1,11 +1,9 @@
 {
   "files.exclude": {
-    "pubspec.lock": true,
     "README.md": true,
     "bgiet.iml": true,
     ".packages": true,
     ".metadata": true,
-    ".gitignore": true,
     ".flutter-plugins-dependencies": true,
     ".flutter-plugins": true,
     "windows": true,
@@ -17,7 +15,8 @@
     ".vscode": true,
     ".dart_tool": true,
     "analysis_options.yaml": true,
-    ".idea": true
+    ".idea": true,
+    ".gitignore": true
   },
   "explorerExclude.backup": null
 }
