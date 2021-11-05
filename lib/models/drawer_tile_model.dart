@@ -26,10 +26,10 @@ final List<DrawerTile> listOfDrawerTiles = [
     name: "Student Life",
     routeName: RouteConstants.studentLifeScreen,
   ),
-  DrawerTile(
-    name: "Settings",
-    routeName: RouteConstants.settingsScreen,
-  ),
+  // DrawerTile(
+  //   name: "Settings",
+  //   routeName: RouteConstants.settingsScreen,
+  // ),
   DrawerTile(
     name: "PTU Exam",
     routeName: RouteConstants.ptuExamWebView,
