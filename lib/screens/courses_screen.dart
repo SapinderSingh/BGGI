@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/models/courses_model.dart';
+import 'package:bgiet/widgets/custom_app_bar.dart';
+import 'package:bgiet/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class CoursesScreen extends StatelessWidget {
@@ -10,35 +9,20 @@ class CoursesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Courses'),
+      appBar: customAppBar(
+        context: context,
+        title: 'Courses',
       ),
       body: ListView.separated(
-        itemBuilder: (_, index) => _CoursesListItem(
-          courseName: Course.listOfCourses[index].name,
+        itemBuilder: (_, index) => CustomListTile(
+          title: Course.listOfCourses[index].name,
+          isLink: false,
+          haveTrailingIcon: false,
+          placeToGoTo: '',
         ),
-        separatorBuilder: (_, __) => Divider(),
+        separatorBuilder: (_, __) => const Divider(),
         itemCount: Course.listOfCourses.length,
       ),
-    );
-  }
-}
-
-class _CoursesListItem extends StatelessWidget {
-  final String courseName;
-  const _CoursesListItem({
-    Key? key,
-    required this.courseName,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () => Navigator.of(context).pushNamed(
-        RouteConstants.courseDescriptionScreen,
-        arguments: courseName,
-      ),
-      title: Text(courseName),
     );
   }
 }

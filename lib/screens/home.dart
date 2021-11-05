@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +23,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
+      appBar: customAppBar(
+        context: context,
+        title: 'Home',
       ),
       drawer: MainDrawer(),
       body: ListView(
@@ -58,39 +60,39 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 10,
             ),
-            child: const Text(
+            child: Text(
               'Why BGIET ?',
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.headline4,
             ),
           ),
           _textBuilder(
-              "• Recognized as one of the centers of excellence in higher education in Northern India for more than 15 years."),
+            "• Recognized as one of the centers of excellence in higher education in Northern India for more than 15 years.",
+            context,
+          ),
           _textBuilder(
             "• The group has 10 institutes under its cap catering to 11,000 students in different streams.",
+            context,
           ),
           _textBuilder(
             "• Proven record of placement for students in MNCs of higher repute.",
+            context,
           ),
           _textBuilder(
             "• Faculty with hands-on industrial, teaching, and research experience.",
+            context,
           ),
           _textBuilder(
             "• Personality development classes integrated in the curriculum throughout the program.",
+            context,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 10,
               vertical: 10,
             ),
-            child: const Text(
+            child: Text(
               'Campus Tour',
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.headline4,
             ),
           ),
           Padding(
@@ -114,7 +116,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  Padding _textBuilder(String text) => Padding(
+  Padding _textBuilder(String text, BuildContext context) => Padding(
         padding: const EdgeInsets.only(
           left: 10,
           right: 10,
@@ -122,9 +124,7 @@ class Home extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(
-            fontSize: 14,
-          ),
+          style: Theme.of(context).primaryTextTheme.bodyText1,
         ),
       );
 }

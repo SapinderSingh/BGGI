@@ -1,3 +1,4 @@
+import 'package:bgiet/helpers/custom_theme.dart';
 import 'package:bgiet/helpers/route_helper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,14 +14,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final CustomTheme _customTheme = CustomTheme();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BGIET',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-        scaffoldBackgroundColor: Colors.amber[50],
-      ),
+      themeMode: ThemeMode.system,
       onGenerateRoute: RouteHelper.onGenerateRoute,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: Colors.amber,
+        canvasColor: Colors.amber[50],
+        appBarTheme: _customTheme.customAppBarTheme(),
+        iconTheme: const IconThemeData(color: Colors.amber),
+        scaffoldBackgroundColor: Colors.amber[50],
+        primaryTextTheme: _customTheme.customPrimaryTextTheme(isDark: false),
+      ),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.amber,
+        primaryColor: Colors.amber,
+        brightness: Brightness.dark,
+        iconTheme: const IconThemeData(color: Colors.amber),
+        appBarTheme: _customTheme.customAppBarTheme(),
+        primaryTextTheme: _customTheme.customPrimaryTextTheme(isDark: true),
+      ),
     );
   }
 }

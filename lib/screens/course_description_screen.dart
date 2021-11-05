@@ -1,3 +1,4 @@
+import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class CourseDescriptionScreen extends StatelessWidget {
@@ -9,10 +10,14 @@ class CourseDescriptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(name),
+      appBar: customAppBar(
+        context: context,
+        title: name,
       ),
-      body: Text(name),
+      body: Text(
+        name,
+        style: Theme.of(context).primaryTextTheme.bodyText1,
+      ),
     );
   }
 }

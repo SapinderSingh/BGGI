@@ -1,4 +1,5 @@
 import 'package:bgiet/models/courses_model.dart';
+import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -30,8 +31,9 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
       _syllabusTextController.text = _selectedValue!;
     }
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Syllabus'),
+      appBar: customAppBar(
+        context: context,
+        title: 'Syllabus',
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

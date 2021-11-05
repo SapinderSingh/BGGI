@@ -1,3 +1,4 @@
+import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -16,8 +17,9 @@ class _PTUExamWebViewState extends State<PTUExamWebView> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const MainDrawer(),
-      appBar: AppBar(
-        title: const Text('PTU Exam'),
+      appBar: customAppBar(
+        context: context,
+        title: 'PTU Exam',
       ),
       body: Stack(
         children: <Widget>[
