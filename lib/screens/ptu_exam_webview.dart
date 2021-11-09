@@ -23,23 +23,25 @@ class _PTUExamWebViewState extends State<PTUExamWebView> {
         title: 'PTU Exam',
       ),
       body: pressBackAgainToClose(
-        child: Stack(
-          children: <Widget>[
-            WebView(
-              initialUrl: 'https://m.ptuexam.com',
-              javascriptMode: JavascriptMode.unrestricted,
-              onPageFinished: (finish) {
-                setState(() {
-                  isLoading = false;
-                });
-              },
-            ),
-            isLoading
-                ? const Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : Container(),
-          ],
+        child: SafeArea(
+          child: Stack(
+            children: <Widget>[
+              WebView(
+                initialUrl: 'https://m.ptuexam.com',
+                javascriptMode: JavascriptMode.unrestricted,
+                onPageFinished: (finish) {
+                  setState(() {
+                    isLoading = false;
+                  });
+                },
+              ),
+              isLoading
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : Container(),
+            ],
+          ),
         ),
       ),
     );

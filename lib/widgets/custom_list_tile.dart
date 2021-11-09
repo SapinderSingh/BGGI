@@ -1,3 +1,4 @@
+import 'package:bgiet/widgets/custom_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,7 +20,15 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: isLink
-          ? () => _launchURL(placeToGoTo)
+          ? () => showDialog(
+                context: context,
+                builder: (_) => CustomAlertDialog(
+                  onPressed: () {
+                    _launchURL(placeToGoTo);
+                    Navigator.of(context).pop();
+                  },
+                ),
+              )
           : () => toBeReplaced
               ? Navigator.of(context).pushReplacementNamed(placeToGoTo)
               : Navigator.of(context).pushNamed(placeToGoTo),

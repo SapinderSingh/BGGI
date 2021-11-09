@@ -1,4 +1,5 @@
 import 'package:bgiet/models/courses_model.dart';
+import 'package:bgiet/widgets/custom_alert_dialog.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,6 +15,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
   final List<Course> _listOfCourses = Course.listOfCourses;
   String? _selectedValue;
   String _courseSyllabusUrl = '';
+  bool _isCourseSelected = false;
 
   final TextEditingController _syllabusTextController = TextEditingController();
 
@@ -53,7 +55,17 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () => _launchURL(_courseSyllabusUrl),
+            onPressed: _isCourseSelected
+                ? () => showDialog(
+                      context: context,
+                      builder: (_) => CustomAlertDialog(
+                        onPressed: () {
+                          _launchURL(_courseSyllabusUrl);
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    )
+                : null,
             child: const Text('Download PDF'),
           ),
         ],
@@ -78,10 +90,12 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                   if (value == null) {
                     setState(() {
                       _selectedValue = value;
+                      _isCourseSelected = false;
                     });
                   } else {
                     setState(() {
                       _selectedValue = value;
+                      _isCourseSelected = true;
                     });
                     final Course _courseByName = _listOfCourses.firstWhere(
                       (element) => element.name == _selectedValue,
@@ -93,10 +107,13 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
               ),
             ),
           ),
-          ElevatedButton(
-            onPressed: () => Navigator.of(_).pop(),
-            child: const Text(
-              'Cancel',
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            child: ElevatedButton(
+              onPressed: () => Navigator.of(_).pop(),
+              child: const Text(
+                'Cancel',
+              ),
             ),
           ),
         ],
