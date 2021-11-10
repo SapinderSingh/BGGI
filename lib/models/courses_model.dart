@@ -34,7 +34,7 @@ class Course {
           'https://ptu.ac.in/wp-content/uploads/2021/06/B-Tech-ME-3_8_Batch-2018_29062021.pdf',
     ),
     Course(
-      name: '	B.Tech Electrical Engineering',
+      name: 'B.Tech Electrical Engineering',
       nickName: 'B.Tech EE',
       syllabusLink:
           'https://ptu.ac.in/wp-content/uploads/2021/06/Electrical-Engineering-complete.pdf',

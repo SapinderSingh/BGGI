@@ -8,6 +8,7 @@ import 'package:bgiet/screens/course_description_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
 import 'package:bgiet/screens/downloads_screen.dart';
 import 'package:bgiet/screens/home.dart';
+import 'package:bgiet/screens/library_screen.dart';
 import 'package:bgiet/screens/ptu_exam_webview.dart';
 import 'package:bgiet/screens/settings_screen.dart';
 import 'package:bgiet/screens/student_life_screen.dart';
@@ -44,6 +45,8 @@ class RouteHelper {
         return _pageGenerator(PTUExamWebView());
       case RouteConstants.studentLifeScreen:
         return _pageGenerator(StudentLifeScreen());
+      case RouteConstants.libraryScreen:
+        return _pageGenerator(LibraryScreen());
       default:
         return _pageGenerator(UnknownScreen());
     }

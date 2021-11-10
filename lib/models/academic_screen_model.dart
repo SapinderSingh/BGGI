@@ -36,5 +36,10 @@ class AcademicScreenModel {
       routeName: RouteConstants.syllabusScreen,
       url: null,
     ),
+    AcademicScreenModel(
+      name: "Library",
+      routeName: RouteConstants.libraryScreen,
+      url: null,
+    ),
   ];
 }
