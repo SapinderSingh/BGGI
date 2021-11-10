@@ -16,7 +16,8 @@
     ".dart_tool": true,
     "analysis_options.yaml": true,
     ".idea": true,
-    ".gitignore": true
+    ".gitignore": true,
+    "pubspec.lock": true
   },
   "explorerExclude.backup": null
 }

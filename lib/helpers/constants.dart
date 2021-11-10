@@ -1,5 +1,3 @@
-class BgietColors {}
-
 class RouteConstants {
   static const String aboutScreen = '/about-screen',
       downloadsScreen = '/downloads-screen',
