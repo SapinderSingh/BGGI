@@ -24,6 +24,10 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primarySwatch: Colors.amber,
         canvasColor: Colors.amber[50],
+        colorScheme: ColorScheme.fromSwatch(
+          accentColor: Colors.amber,
+          brightness: Brightness.light,
+        ),
         appBarTheme: _customTheme.customAppBarTheme(),
         iconTheme: const IconThemeData(color: Colors.amber),
         scaffoldBackgroundColor: Colors.amber[50],
@@ -33,6 +37,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
         primaryColor: Colors.amber,
         brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSwatch(
+          accentColor: Colors.amber,
+          brightness: Brightness.dark,
+        ),
         iconTheme: const IconThemeData(color: Colors.amber),
         appBarTheme: _customTheme.customAppBarTheme(),
         primaryTextTheme: _customTheme.customPrimaryTextTheme(isDark: true),
