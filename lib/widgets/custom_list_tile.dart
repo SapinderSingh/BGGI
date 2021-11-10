@@ -1,7 +1,7 @@
+import 'package:bgiet/helpers/common_functions.dart';
 import 'package:bgiet/widgets/custom_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
@@ -11,10 +11,11 @@ class CustomListTile extends StatelessWidget {
     required this.isLink,
     required this.placeToGoTo,
     required this.toBeReplaced,
+    this.arguments,
   }) : super(key: key);
 
   final String title, placeToGoTo;
-
+  final Object? arguments;
   final bool haveTrailingIcon, isLink, toBeReplaced;
   @override
   Widget build(BuildContext context) {
@@ -22,16 +23,18 @@ class CustomListTile extends StatelessWidget {
       onTap: isLink
           ? () => showDialog(
                 context: context,
-                builder: (_) => CustomAlertDialog(
+                builder: (ctx) => CustomAlertDialog(
                   onPressed: () {
-                    _launchURL(placeToGoTo);
+                    CommonFunctions.launchURL(placeToGoTo, ctx);
                     Navigator.of(context).pop();
                   },
                 ),
               )
           : () => toBeReplaced
-              ? Navigator.of(context).pushReplacementNamed(placeToGoTo)
-              : Navigator.of(context).pushNamed(placeToGoTo),
+              ? Navigator.of(context)
+                  .pushReplacementNamed(placeToGoTo, arguments: arguments)
+              : Navigator.of(context)
+                  .pushNamed(placeToGoTo, arguments: arguments),
       title: Text(
         title,
         style: TextStyle(
@@ -47,13 +50,5 @@ class CustomListTile extends StatelessWidget {
             )
           : null,
     );
-  }
-
-  void _launchURL(String url) async {
-    try {
-      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
-    } on Exception catch (e) {
-      print(e);
-    }
   }
 }

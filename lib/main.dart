@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouteHelper.onGenerateRoute,
       theme: ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.amber,
         canvasColor: Colors.amber[50],
         colorScheme: ColorScheme.fromSwatch(
           accentColor: Colors.amber,
           brightness: Brightness.light,
+          primarySwatch: Colors.amber,
         ),
         appBarTheme: _customTheme.customAppBarTheme(),
         iconTheme: const IconThemeData(color: Colors.amber),
@@ -34,12 +34,11 @@ class MyApp extends StatelessWidget {
         primaryTextTheme: _customTheme.customPrimaryTextTheme(isDark: false),
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.amber,
-        primaryColor: Colors.amber,
         brightness: Brightness.dark,
         colorScheme: ColorScheme.fromSwatch(
           accentColor: Colors.amber,
           brightness: Brightness.dark,
+          primarySwatch: Colors.amber,
         ),
         iconTheme: const IconThemeData(color: Colors.amber),
         appBarTheme: _customTheme.customAppBarTheme(),

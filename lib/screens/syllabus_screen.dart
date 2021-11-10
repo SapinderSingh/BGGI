@@ -1,8 +1,8 @@
+import 'package:bgiet/helpers/common_functions.dart';
 import 'package:bgiet/models/courses_model.dart';
 import 'package:bgiet/widgets/custom_alert_dialog.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SyllabusScreen extends StatefulWidget {
   const SyllabusScreen({Key? key}) : super(key: key);
@@ -58,9 +58,9 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
             onPressed: _isCourseSelected
                 ? () => showDialog(
                       context: context,
-                      builder: (_) => CustomAlertDialog(
+                      builder: (ctx) => CustomAlertDialog(
                         onPressed: () {
-                          _launchURL(_courseSyllabusUrl);
+                          CommonFunctions.launchURL(_courseSyllabusUrl, ctx);
                           Navigator.of(context).pop();
                         },
                       ),
@@ -119,10 +119,5 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
         ],
       ),
     );
-  }
-
-  void _launchURL(String url) async {
-    // TODO: Error handling
-    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   }
 }
