@@ -2,12 +2,11 @@ import 'package:bgiet/helpers/constants.dart';
 
 class AcademicScreenModel {
   final String name;
-  final String? routeName, url;
+  final String routeName;
 
   AcademicScreenModel({
     required this.name,
     required this.routeName,
-    required this.url,
   });
 
   static List<AcademicScreenModel> get listOfAcademicTiles =>
@@ -15,31 +14,20 @@ class AcademicScreenModel {
 
   static final List<AcademicScreenModel> _listOfAcademicTiles = [
     AcademicScreenModel(
-      name: "Courses",
-      routeName: RouteConstants.coursesScreen,
-      url: null,
-    ),
-    AcademicScreenModel(
-      name: "Fee Structure",
-      routeName: null,
-      url:
-          "https://ptu.ac.in/wp-content/uploads/2020/10/Fee-Structure-of-AICTE-Courses-for-Session-2020-21.pdf",
-    ),
-    AcademicScreenModel(
-      name: "Eligibility",
-      routeName: null,
-      url:
-          "https://ptu.ac.in/wp-content/uploads/2020/09/Eligibility-Criteria-2019-20-AICTE-Course-23-09-2019.pdf",
+      name: "Departments",
+      routeName: RouteConstants.departmentScreen,
     ),
     AcademicScreenModel(
       name: "Syllabus",
       routeName: RouteConstants.syllabusScreen,
-      url: null,
+    ),
+    AcademicScreenModel(
+      name: "Downloads",
+      routeName: RouteConstants.downloadsScreen,
     ),
     AcademicScreenModel(
       name: "Library",
       routeName: RouteConstants.libraryScreen,
-      url: null,
     ),
   ];
 }

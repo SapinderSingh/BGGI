@@ -30,4 +30,27 @@ class CommonFunctions {
       );
     }
   }
+
+  Image loadImageFromNetwork(String imageLink) {
+    return Image.network(
+      imageLink,
+      fit: BoxFit.cover,
+      filterQuality: FilterQuality.none,
+      errorBuilder: (_, Object exception, StackTrace? stackTrace) {
+        return const Center(
+          child: Text('Failed to load image'),
+        );
+      },
+      loadingBuilder: (BuildContext context, Widget child,
+          ImageChunkEvent? loadingProgress) {
+        if (loadingProgress == null) {
+          return child;
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
+  }
 }

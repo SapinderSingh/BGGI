@@ -3,9 +3,11 @@
 import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/screens/about_screen.dart';
 import 'package:bgiet/screens/academics_screen.dart';
+import 'package:bgiet/screens/branches_screen.dart';
 import 'package:bgiet/screens/contact_screen.dart';
-import 'package:bgiet/screens/course_description_screen.dart';
+import 'package:bgiet/screens/branch_detail_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
+import 'package:bgiet/screens/departments_screen.dart';
 import 'package:bgiet/screens/downloads_screen.dart';
 import 'package:bgiet/screens/home.dart';
 import 'package:bgiet/screens/library_screen.dart';
@@ -25,7 +27,8 @@ class RouteHelper {
       case '/':
         return _pageGenerator(Home());
       case RouteConstants.coursesScreen:
-        return _pageGenerator(CoursesScreen());
+        final String _departmentId = _settings.arguments as String;
+        return _pageGenerator(CoursesScreen(departmentId: _departmentId));
       case RouteConstants.viewProfileScreen:
         return _pageGenerator(ViewProfileScreen());
       case RouteConstants.contactScreen:
@@ -39,14 +42,25 @@ class RouteHelper {
       case RouteConstants.downloadsScreen:
         return _pageGenerator(DownloadsScreen());
       case RouteConstants.courseDescriptionScreen:
-        final String _name = _settings.arguments as String;
-        return _pageGenerator(CourseDescriptionScreen(name: _name));
+        final String _branchTitle = _settings.arguments as String;
+        return _pageGenerator(BranchDetailScreen(title: _branchTitle));
       case RouteConstants.ptuExamWebView:
         return _pageGenerator(PTUExamWebView());
       case RouteConstants.studentLifeScreen:
         return _pageGenerator(StudentLifeScreen());
       case RouteConstants.libraryScreen:
         return _pageGenerator(LibraryScreen());
+      case RouteConstants.branchesScreen:
+        final Map<String, String?> _data =
+            _settings.arguments as Map<String, String?>;
+        return _pageGenerator(
+          BranchesScreen(
+            courseId: _data['courseId']!,
+            departmentId: _data['departmentId']!,
+          ),
+        );
+      case RouteConstants.departmentScreen:
+        return _pageGenerator(DepartmentsScreen());
       default:
         return _pageGenerator(UnknownScreen());
     }

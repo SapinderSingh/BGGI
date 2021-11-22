@@ -1,3 +1,4 @@
+import 'package:bgiet/helpers/common_functions.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,7 @@ class LibraryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CommonFunctions _commonFunction = CommonFunctions();
     return Scaffold(
       appBar: customAppBar(title: 'Library', context: context),
       body: ListView(
@@ -17,10 +19,8 @@ class LibraryScreen extends StatelessWidget {
             filterQuality: FilterQuality.high,
           ),
           const SizedBox(height: 20),
-          Image.network(
+          _commonFunction.loadImageFromNetwork(
             'https://bgiet.ac.in/wp-content/uploads/2017/05/lib2-300x200.jpg',
-            fit: BoxFit.cover,
-            filterQuality: FilterQuality.high,
           ),
           const SizedBox(height: 20),
           Text(
