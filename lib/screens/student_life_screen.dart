@@ -3,6 +3,7 @@ import 'package:bgiet/widgets/carsoul_slider.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
 import 'package:bgiet/widgets/press_back_again_to_close.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class StudentLifeScreen extends StatelessWidget {
@@ -11,7 +12,7 @@ class StudentLifeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CommonFunctions _commonFunction = CommonFunctions();
-    final List<Image> _listOfAthleticImages = [
+    final List<CachedNetworkImage> _listOfAthleticImages = [
       _commonFunction.loadImageFromNetwork(
         'https://bgiet.ac.in/wp-content/uploads/2017/05/ath1.jpg',
       ),
@@ -38,7 +39,7 @@ class StudentLifeScreen extends StatelessWidget {
       ),
     ];
 
-    final List<Image> _listOfHousingImages = [
+    final List<CachedNetworkImage> _listOfHousingImages = [
       _commonFunction.loadImageFromNetwork(
         'https://bgiet.ac.in/wp-content/uploads/2017/05/boy3.jpg',
       ),
@@ -59,7 +60,7 @@ class StudentLifeScreen extends StatelessWidget {
       ),
     ];
 
-    final List<Image> _listOfDiningImages = [
+    final List<CachedNetworkImage> _listOfDiningImages = [
       _commonFunction.loadImageFromNetwork(
         'https://bgiet.ac.in/wp-content/uploads/2017/05/girl4.jpg',
       ),
@@ -67,7 +68,7 @@ class StudentLifeScreen extends StatelessWidget {
         'https://bgiet.ac.in/wp-content/uploads/2017/05/girl3.jpg',
       ),
       _commonFunction.loadImageFromNetwork(
-        'https://bgiet.ac.in/wp-content/uploads/2017/05/girl5.jpg',
+        'https://bgiet.ac.in/wp-content/uploads/2017/05/girl5',
       ),
       _commonFunction.loadImageFromNetwork(
         'https://bgiet.ac.in/wp-content/uploads/2017/05/girl7.jpg',
