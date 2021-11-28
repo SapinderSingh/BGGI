@@ -68,7 +68,7 @@ class StudentLifeScreen extends StatelessWidget {
         'https://bgiet.ac.in/wp-content/uploads/2017/05/girl3.jpg',
       ),
       _commonFunction.loadImageFromNetwork(
-        'https://bgiet.ac.in/wp-content/uploads/2017/05/girl5',
+        'https://bgiet.ac.in/wp-content/uploads/2017/05/girl5.jpg',
       ),
       _commonFunction.loadImageFromNetwork(
         'https://bgiet.ac.in/wp-content/uploads/2017/05/girl7.jpg',

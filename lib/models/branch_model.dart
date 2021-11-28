@@ -8,7 +8,8 @@ class Branch with ChangeNotifier {
       syllabusLink,
       branchId,
       title,
-      courseId;
+      courseId,
+      courseDuration;
 
   Branch({
     this.branchId,
@@ -18,6 +19,7 @@ class Branch with ChangeNotifier {
     this.imageLink,
     this.nickname,
     this.syllabusLink,
+    this.courseDuration,
   });
 
   final List<Branch> _listOfBranches = [];
@@ -40,6 +42,7 @@ class Branch with ChangeNotifier {
             _fetchedData.data() as Map<String, dynamic>;
         _listOfBranches.add(
           Branch(
+            courseDuration: _convertedData['courseDuration'],
             courseId: courseId,
             title: _convertedData['title'],
             branchId: _fetchedData.id,

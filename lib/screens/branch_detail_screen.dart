@@ -14,15 +14,15 @@ class BranchDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Branch _branch = Provider.of<Branch>(context, listen: false);
     CommonFunctions _commonFunction = CommonFunctions();
-    final _requiredBranch = _branch.listOfBranches.firstWhere(
+    final Branch _branch = Provider.of<Branch>(context, listen: false);
+    final Branch _requiredBranch = _branch.listOfBranches.firstWhere(
       (branch) => title == branch.title,
     );
     return Scaffold(
       appBar: customAppBar(
         context: context,
-        title: title,
+        title: _requiredBranch.nickname!,
       ),
       body: ListView(
         padding: const EdgeInsets.all(10),
@@ -32,8 +32,20 @@ class BranchDetailScreen extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
+            'Description :',
+            style: Theme.of(context).primaryTextTheme.headline6,
+          ),
+          _commonFunction.descriptionText(
             _requiredBranch.description!,
-            style: Theme.of(context).primaryTextTheme.bodyText1,
+            context,
+          ),
+          Text(
+            'Duration : ',
+            style: Theme.of(context).primaryTextTheme.headline6,
+          ),
+          _commonFunction.descriptionText(
+            _requiredBranch.courseDuration!,
+            context,
           ),
         ],
       ),
