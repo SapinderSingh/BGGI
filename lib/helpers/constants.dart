@@ -13,5 +13,7 @@ class RouteConstants {
       ptuExamWebView = '/ptu-exam-webview',
       libraryScreen = 'library-screen',
       departmentScreen = 'department-screen',
-      universityDataScreen = 'unversity-data-screen';
+      universityDataScreen = 'unversity-data-screen',
+      collegeNoticeScreen = 'college-notice-screen',
+      viewPdfScreen = 'view-pdf-screen';
 }

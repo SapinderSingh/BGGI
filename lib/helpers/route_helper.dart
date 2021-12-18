@@ -3,6 +3,7 @@
 import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/screens/about_screen.dart';
 import 'package:bgiet/screens/academics_screen.dart';
+import 'package:bgiet/screens/college_notice_screen.dart';
 import 'package:bgiet/screens/contact_screen.dart';
 import 'package:bgiet/screens/course_detail_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
@@ -16,6 +17,7 @@ import 'package:bgiet/screens/student_life_screen.dart';
 import 'package:bgiet/screens/syllabus_screen.dart';
 import 'package:bgiet/screens/university_websites.dart';
 import 'package:bgiet/screens/unknown_screen.dart';
+import 'package:bgiet/screens/view_pdf_screen.dart';
 import 'package:bgiet/screens/view_profile_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -55,6 +57,13 @@ class RouteHelper {
         return _pageGenerator(DepartmentsScreen());
       case RouteConstants.universityDataScreen:
         return _pageGenerator(UniversityWebsites());
+      case RouteConstants.collegeNoticeScreen:
+        return _pageGenerator(CollegeNoticeScreen());
+      case RouteConstants.viewPdfScreen:
+        final Map<String, dynamic> _data =
+            _settings.arguments as Map<String, dynamic>;
+        return _pageGenerator(
+            ViewPdfScreen(pdfName: _data['pdfName'], pdfUrl: _data['pdfUrl']));
       default:
         return _pageGenerator(UnknownScreen());
     }

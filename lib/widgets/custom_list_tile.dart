@@ -11,9 +11,11 @@ class CustomListTile extends StatelessWidget {
     required this.isLink,
     required this.placeToGoTo,
     required this.toBeReplaced,
+    this.subtitle,
     this.arguments,
   }) : super(key: key);
 
+  final String? subtitle;
   final String title, placeToGoTo;
   final Object? arguments;
   final bool haveTrailingIcon, isLink, toBeReplaced;
@@ -43,6 +45,7 @@ class CustomListTile extends StatelessWidget {
           fontFamily: GoogleFonts.lora().fontFamily,
         ),
       ),
+      subtitle: subtitle == null ? null : Text(subtitle!),
       trailing: haveTrailingIcon
           ? Icon(
               Icons.arrow_forward,
