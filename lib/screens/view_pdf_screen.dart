@@ -1,12 +1,9 @@
-import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
 class ViewPdfScreen extends StatelessWidget {
-  const ViewPdfScreen({
-    Key? key,
-    required this.pdfName,
-    required this.pdfUrl,
-  }) : super(key: key);
+  const ViewPdfScreen({Key? key, required this.pdfName, required this.pdfUrl})
+      : super(key: key);
 
   final String pdfUrl, pdfName;
 
@@ -16,23 +13,21 @@ class ViewPdfScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(pdfName),
       ),
-      body: FutureBuilder<PDFDocument>(
-        future: PDFDocument.fromURL(pdfUrl),
-        builder: (_, snapshot) {
-          if (snapshot.hasData) {
-            return PDFViewer(
-              document: snapshot.data!,
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Error: ${snapshot.error}'),
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        },
+      body: const PDF(
+        autoSpacing: true,
+        enableSwipe: true,
+        pageSnap: true,
+        fitEachPage: true,
+      ).cachedFromUrl(
+        pdfUrl,
+        placeholder: (progress) => Center(
+          child: Text('Loading: $progress %'),
+        ),
+        errorWidget: (error) => Center(
+          child: Text(
+            error.toString(),
+          ),
+        ),
       ),
     );
   }
