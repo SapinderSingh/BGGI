@@ -16,15 +16,16 @@ class CustomTheme {
 
   TextTheme customPrimaryTextTheme({required bool isDark}) => TextTheme(
         headline6: GoogleFonts.lora(
-          color: isDark ? Colors.white : Colors.black,
+          color: isDark ? Colors.grey[400] : Colors.black,
           fontWeight: FontWeight.bold,
         ),
         headline4: GoogleFonts.lora(
+          color: isDark ? Colors.grey[450] : Colors.black,
           fontWeight: FontWeight.bold,
         ),
         bodyText1: GoogleFonts.josefinSans(
           color: isDark ? Colors.white : Colors.black,
-          fontSize: 17,
+          fontSize: 18,
         ),
       );
 }

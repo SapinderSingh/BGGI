@@ -87,25 +87,46 @@ class StudentLifeScreen extends StatelessWidget {
         context: context,
       ),
       body: pressBackAgainToClose(
-        child: ListView(
-          padding: const EdgeInsets.all(10),
-          children: [
-            Text(
-              'Athletics & Recreation',
-              style: Theme.of(context).primaryTextTheme.headline6,
-            ),
-            const SizedBox(height: 10),
-            customCarouselSlider(_listOfAthleticImages),
-            const SizedBox(height: 20),
-            Text(
-              'Housing & Dining',
-              style: Theme.of(context).primaryTextTheme.headline6,
-            ),
-            const SizedBox(height: 10),
-            customCarouselSlider(_listOfHousingImages),
-            const SizedBox(height: 20),
-            customCarouselSlider(_listOfDiningImages),
-          ],
+        child: FutureBuilder<void>(
+          future: Future.delayed(const Duration(seconds: 1)),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text(snapshot.error.toString()),
+              );
+            } else {
+              return ListView(
+                padding: const EdgeInsets.all(10),
+                children: [
+                  Text(
+                    'Athletics & Recreation',
+                    style: Theme.of(context).primaryTextTheme.headline6,
+                  ),
+                  const SizedBox(height: 10),
+                  customCarouselSlider(
+                    listOfNetworkImages: _listOfAthleticImages,
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    'Housing & Dining',
+                    style: Theme.of(context).primaryTextTheme.headline6,
+                  ),
+                  const SizedBox(height: 10),
+                  customCarouselSlider(
+                    listOfNetworkImages: _listOfHousingImages,
+                  ),
+                  const SizedBox(height: 20),
+                  customCarouselSlider(
+                    listOfNetworkImages: _listOfDiningImages,
+                  ),
+                ],
+              );
+            }
+          },
         ),
       ),
     );

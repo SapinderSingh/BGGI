@@ -27,8 +27,8 @@ final List<DrawerTile> listOfDrawerTiles = [
   //   routeName: RouteConstants.settingsScreen,
   // ),
   DrawerTile(
-    name: "PTU Exam",
-    routeName: RouteConstants.ptuExamWebView,
+    name: "University Websites",
+    routeName: RouteConstants.universityDataScreen,
   ),
   DrawerTile(
     name: "About Us",

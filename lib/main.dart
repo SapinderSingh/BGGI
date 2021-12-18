@@ -1,7 +1,6 @@
 import 'package:bgiet/helpers/custom_theme.dart';
 import 'package:bgiet/helpers/route_helper.dart';
-import 'package:bgiet/models/branch_model.dart';
-import 'package:bgiet/models/courses_model.dart';
+import 'package:bgiet/models/course_model.dart';
 import 'package:bgiet/models/department_model.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +27,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => Department()),
         ChangeNotifierProvider(create: (_) => Course()),
-        ChangeNotifierProvider(create: (_) => Branch()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

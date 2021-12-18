@@ -16,7 +16,8 @@ class Department with ChangeNotifier {
   Future<void> fetchAndAddDepartmentsToList() async {
     CollectionReference _departments =
         FirebaseFirestore.instance.collection('departments');
-    final QuerySnapshot<Object?> _coursesSnapshot = await _departments.get();
+    final QuerySnapshot<Object?> _coursesSnapshot =
+        await _departments.orderBy('title').get();
     _listOfDepartments.clear();
 
     _coursesSnapshot.docs.toList().forEach(

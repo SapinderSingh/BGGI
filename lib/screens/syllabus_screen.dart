@@ -1,7 +1,8 @@
 import 'package:bgiet/helpers/common_functions.dart';
-import 'package:bgiet/models/branch_model.dart';
-import 'package:bgiet/models/courses_model.dart';
+import 'package:bgiet/models/batch_model.dart';
+import 'package:bgiet/models/course_model.dart';
 import 'package:bgiet/models/department_model.dart';
+import 'package:bgiet/models/semester_model.dart';
 import 'package:bgiet/widgets/custom_alert_dialog.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -17,18 +18,26 @@ class SyllabusScreen extends StatefulWidget {
 class _SyllabusScreenState extends State<SyllabusScreen> {
   final TextEditingController _departmentController = TextEditingController(),
       _courseController = TextEditingController(),
-      _branchController = TextEditingController();
+      _batchController = TextEditingController(),
+      _semesterController = TextEditingController();
 
   String? _selectedCourseTitle,
-      _selectedBranchTitle,
+      _selectedBatchTitle,
+      _selectedSemesterTitle,
       _selectedDepartmentTitle,
       _courseId,
-      _branchSyllabusUrl,
+      _batchId,
+      _courseSyllabusUrl,
       _departmentId;
 
   bool _isCourseSelected = false,
-      _isBranchSelected = false,
+      _isBatchSelected = false,
+      _isSemesterSelected = false,
       _isDepartmentSelected = false;
+
+  final Batch _batch = Batch();
+
+  final Semester _semester = Semester();
 
   Padding _readOnlyTextField({
     bool? isEnabled,
@@ -53,9 +62,10 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
 
   @override
   void dispose() {
-    _branchController.dispose();
+    _batchController.dispose();
     _courseController.dispose();
     _departmentController.dispose();
+    _semesterController.dispose();
     super.dispose();
   }
 
@@ -71,10 +81,15 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
     } else {
       _courseController.text = _selectedCourseTitle!;
     }
-    if (_selectedBranchTitle == null) {
-      _branchController.text = '';
+    if (_selectedBatchTitle == null) {
+      _batchController.text = '';
     } else {
-      _branchController.text = _selectedBranchTitle!;
+      _batchController.text = _selectedBatchTitle!;
+    }
+    if (_selectedSemesterTitle == null) {
+      _semesterController.text = '';
+    } else {
+      _semesterController.text = _selectedSemesterTitle!;
     }
     return Scaffold(
       appBar: customAppBar(
@@ -98,19 +113,26 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
           ),
           _readOnlyTextField(
             isEnabled: _isCourseSelected,
-            controller: _branchController,
-            onTap: () => _openBranchSelectionDialog(context),
-            hintText: 'Select Branch',
+            controller: _batchController,
+            onTap: () => _openBatchSelectionDialog(context),
+            hintText: 'Select Batch',
+          ),
+          _readOnlyTextField(
+            isEnabled: _isBatchSelected,
+            controller: _semesterController,
+            onTap: () => _openSemesterSelectionDialog(context),
+            hintText: 'Select Semester',
           ),
           ElevatedButton(
             onPressed: _isDepartmentSelected &&
                     _isCourseSelected &&
-                    _isBranchSelected
+                    _isBatchSelected &&
+                    _isSemesterSelected
                 ? () => showDialog(
                       context: context,
                       builder: (ctx) => CustomAlertDialog(
                         onPressed: () {
-                          CommonFunctions.launchURL(_branchSyllabusUrl!, ctx);
+                          CommonFunctions.launchURL(_courseSyllabusUrl!, ctx);
                           Navigator.of(context).pop();
                         },
                       ),
@@ -134,7 +156,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
         children: [
           if (_listOfDepartments.isEmpty)
             Column(
-              children: [
+              children: const [
                 SizedBox(
                   height: 15,
                 ),
@@ -157,7 +179,13 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                     if (value == null) {
                       setState(() {
                         _selectedDepartmentTitle = value;
+                        _selectedCourseTitle = value;
+                        _selectedBatchTitle = value;
+                        _selectedSemesterTitle = value;
                         _isDepartmentSelected = false;
+                        _isCourseSelected = false;
+                        _isBatchSelected = false;
+                        _isSemesterSelected = false;
                       });
                     } else {
                       setState(
@@ -165,9 +193,10 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                           _selectedDepartmentTitle = value;
                           _isDepartmentSelected = true;
                           _isCourseSelected = false;
-                          _isBranchSelected = false;
+                          _isBatchSelected = false;
                           _selectedCourseTitle = null;
-                          _selectedBranchTitle = null;
+                          _selectedBatchTitle = null;
+                          _selectedSemesterTitle = null;
                         },
                       );
                       final Department _departmentByName =
@@ -178,7 +207,8 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
 
                       await Provider.of<Course>(context, listen: false)
                           .fetchAndAddCoursesToList(
-                              departmentId: _departmentId!);
+                        departmentId: _departmentId!,
+                      );
                     }
                     Navigator.of(_).pop();
                   },
@@ -224,15 +254,20 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                     if (value == null) {
                       setState(() {
                         _selectedCourseTitle = value;
+                        _selectedBatchTitle = value;
+                        _selectedSemesterTitle = value;
                         _isCourseSelected = false;
+                        _isBatchSelected = false;
+                        _isSemesterSelected = false;
                       });
                     } else {
                       setState(
                         () {
                           _selectedCourseTitle = value;
                           _isCourseSelected = true;
-                          _isBranchSelected = false;
-                          _selectedBranchTitle = null;
+                          _isBatchSelected = false;
+                          _selectedBatchTitle = null;
+                          _selectedSemesterTitle = null;
                           final Course _courseByName =
                               _listOfCourses.firstWhere(
                             (element) => element.title == _selectedCourseTitle,
@@ -240,10 +275,9 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                           _courseId = _courseByName.id;
                         },
                       );
-                      await Provider.of<Branch>(context, listen: false)
-                          .fetchAndAddBranchesToList(
-                        courseId: _courseId!,
+                      await _batch.fetchAndAddBatchesToList(
                         departmentId: _departmentId!,
+                        courseId: _courseId!,
                       );
                     }
                     Navigator.of(_).pop();
@@ -257,23 +291,20 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
     );
   }
 
-  void _openBranchSelectionDialog(BuildContext ctx) {
-    final List<Branch> _listOfBranches =
-        Provider.of<Branch>(context, listen: false).listOfBranches;
-    final List<Branch> _requiredBranchList = _listOfBranches
-        .where((element) => element.courseId == _courseId)
-        .toList();
+  _openBatchSelectionDialog(BuildContext ctx) {
+    final List<Batch> _listOfBatches = _batch.listOfBatches;
+
     showDialog(
       context: ctx,
       builder: (_) => SimpleDialog(
         children: [
-          if (_requiredBranchList.isEmpty)
+          if (_listOfBatches.isEmpty)
             Column(
               children: const [
                 SizedBox(
                   height: 15,
                 ),
-                Text('No Branches Added'),
+                Text('No Batches Added'),
                 SizedBox(
                   height: 15,
                 ),
@@ -282,28 +313,95 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
           else
             Column(
               children: List.generate(
-                _requiredBranchList.length,
+                _listOfBatches.length,
                 (index) => RadioListTile<String>(
-                  title: Text(_requiredBranchList[index].title!),
-                  value: _requiredBranchList[index].title!,
+                  title: Text(_listOfBatches[index].title!),
+                  value: _listOfBatches[index].title!,
                   toggleable: true,
-                  groupValue: _selectedBranchTitle,
-                  onChanged: (String? value) {
+                  groupValue: _selectedBatchTitle,
+                  onChanged: (String? value) async {
                     if (value == null) {
                       setState(() {
-                        _selectedBranchTitle = value;
-                        _isBranchSelected = false;
+                        _selectedBatchTitle = value;
+                        _isBatchSelected = false;
+                        _isSemesterSelected = false;
+                        _selectedSemesterTitle = value;
                       });
                     } else {
-                      _selectedBranchTitle = value;
-
-                      final _selectedBranch = _requiredBranchList.firstWhere(
-                        (element) => element.title == _selectedBranchTitle,
-                      );
                       setState(
                         () {
-                          _isBranchSelected = true;
-                          _branchSyllabusUrl = _selectedBranch.syllabusLink;
+                          _selectedBatchTitle = value;
+                          _isBatchSelected = true;
+                          _isSemesterSelected = false;
+                          _selectedSemesterTitle = null;
+                          final Batch _batchByName = _listOfBatches.firstWhere(
+                            (element) => element.title == _selectedBatchTitle,
+                          );
+                          _batchId = _batchByName.id;
+                        },
+                      );
+                      await _semester.fetchAndAddSemestersToList(
+                        departmentId: _departmentId!,
+                        courseId: _courseId!,
+                        batchId: _batchId!,
+                      );
+                    }
+                    Navigator.of(_).pop();
+                  },
+                ),
+              ),
+            ),
+          _cancelButton(ctx),
+        ],
+      ),
+    );
+  }
+
+  _openSemesterSelectionDialog(BuildContext ctx) {
+    final List<Semester> _listOfSemesters = _semester.listOfSemesters;
+
+    showDialog(
+      context: ctx,
+      builder: (_) => SimpleDialog(
+        children: [
+          if (_listOfSemesters.isEmpty)
+            Column(
+              children: const [
+                SizedBox(
+                  height: 15,
+                ),
+                Text('No Semesters Added'),
+                SizedBox(
+                  height: 15,
+                ),
+              ],
+            )
+          else
+            Column(
+              children: List.generate(
+                _listOfSemesters.length,
+                (index) => RadioListTile<String>(
+                  title: Text(_listOfSemesters[index].title!),
+                  value: _listOfSemesters[index].title!,
+                  toggleable: true,
+                  groupValue: _selectedSemesterTitle,
+                  onChanged: (String? value) async {
+                    if (value == null) {
+                      setState(() {
+                        _selectedSemesterTitle = value;
+                        _isSemesterSelected = false;
+                      });
+                    } else {
+                      setState(
+                        () {
+                          _isSemesterSelected = true;
+                          _selectedSemesterTitle = value;
+                          final Semester _semesterByName =
+                              _listOfSemesters.firstWhere(
+                            (element) =>
+                                element.title == _selectedSemesterTitle,
+                          );
+                          _courseSyllabusUrl = _semesterByName.syllabusLink;
                         },
                       );
                     }

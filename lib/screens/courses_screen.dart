@@ -1,5 +1,5 @@
 import 'package:bgiet/helpers/constants.dart';
-import 'package:bgiet/models/courses_model.dart';
+import 'package:bgiet/models/course_model.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
@@ -33,24 +33,27 @@ class CoursesScreen extends StatelessWidget {
               child: Text(snapshot.error.toString()),
             );
           } else {
-            return ListView.separated(
-              itemBuilder: (_, index) {
-                final Course _courseModel = _course.listOfCourses[index];
-                return CustomListTile(
-                  toBeReplaced: false,
-                  title: _courseModel.title!,
-                  isLink: false,
-                  haveTrailingIcon: true,
-                  placeToGoTo: RouteConstants.branchesScreen,
-                  arguments: {
-                    'departmentId': departmentId,
-                    'courseId': _courseModel.id,
-                  },
-                );
-              },
-              separatorBuilder: (_, __) => const Divider(),
-              itemCount: _course.listOfCourses.length,
-            );
+            if (_course.listOfCourses.isEmpty) {
+              return const Center(
+                child: Text('No Courses Added till now.'),
+              );
+            } else {
+              return ListView.separated(
+                itemBuilder: (_, index) {
+                  final Course _courseModel = _course.listOfCourses[index];
+                  return CustomListTile(
+                    toBeReplaced: false,
+                    title: _courseModel.title!,
+                    isLink: false,
+                    haveTrailingIcon: true,
+                    placeToGoTo: RouteConstants.courseDetailScreen,
+                    arguments: _courseModel.title,
+                  );
+                },
+                separatorBuilder: (_, __) => const Divider(),
+                itemCount: _course.listOfCourses.length,
+              );
+            }
           }
         },
       ),

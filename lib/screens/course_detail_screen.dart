@@ -1,11 +1,11 @@
 import 'package:bgiet/helpers/common_functions.dart';
-import 'package:bgiet/models/branch_model.dart';
+import 'package:bgiet/models/course_model.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class BranchDetailScreen extends StatelessWidget {
-  const BranchDetailScreen({
+class CourseDetailScreen extends StatelessWidget {
+  const CourseDetailScreen({
     Key? key,
     required this.title,
   }) : super(key: key);
@@ -15,20 +15,20 @@ class BranchDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CommonFunctions _commonFunction = CommonFunctions();
-    final Branch _branch = Provider.of<Branch>(context, listen: false);
-    final Branch _requiredBranch = _branch.listOfBranches.firstWhere(
-      (branch) => title == branch.title,
+    final Course _course = Provider.of<Course>(context, listen: false);
+    final Course _requiredCourse = _course.listOfCourses.firstWhere(
+      (course) => title == course.title,
     );
     return Scaffold(
       appBar: customAppBar(
         context: context,
-        title: _requiredBranch.nickname!,
+        title: _requiredCourse.nickname!,
       ),
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: [
           _commonFunction.loadImageFromNetwork(
-            _requiredBranch.imageLink!,
+            _requiredCourse.imageUrl!,
           ),
           const SizedBox(height: 10),
           Text(
@@ -36,15 +36,15 @@ class BranchDetailScreen extends StatelessWidget {
             style: Theme.of(context).primaryTextTheme.headline6,
           ),
           _commonFunction.descriptionText(
-            _requiredBranch.description!,
+            _requiredCourse.description!,
             context,
           ),
           Text(
-            'Duration : ',
+            'Duration :',
             style: Theme.of(context).primaryTextTheme.headline6,
           ),
           _commonFunction.descriptionText(
-            _requiredBranch.courseDuration!,
+            _requiredCourse.courseDuration!,
             context,
           ),
         ],

@@ -11,7 +11,7 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       drawer: const MainDrawer(),
       appBar: customAppBar(
-        title: 'About',
+        title: 'About Us',
         context: context,
       ),
       body: pressBackAgainToClose(

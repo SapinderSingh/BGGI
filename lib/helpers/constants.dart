@@ -9,9 +9,9 @@ class RouteConstants {
       syllabusScreen = '/syllabus-screen',
       facultyScreen = '/faculty-screen',
       settingsScreen = '/settings-screen',
-      courseDescriptionScreen = 'course-description-screen',
+      courseDetailScreen = 'course-detail-screen',
       ptuExamWebView = '/ptu-exam-webview',
       libraryScreen = 'library-screen',
-      branchesScreen = 'branches-screen',
-      departmentScreen = 'department-screen';
+      departmentScreen = 'department-screen',
+      universityDataScreen = 'unversity-data-screen';
 }
