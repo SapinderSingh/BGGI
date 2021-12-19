@@ -9,6 +9,7 @@ import 'package:bgiet/screens/course_detail_screen.dart';
 import 'package:bgiet/screens/courses_screen.dart';
 import 'package:bgiet/screens/departments_screen.dart';
 import 'package:bgiet/screens/downloads_screen.dart';
+import 'package:bgiet/screens/enquiry_screen.dart';
 import 'package:bgiet/screens/home.dart';
 import 'package:bgiet/screens/library_screen.dart';
 import 'package:bgiet/screens/ptu_exam_webview.dart';
@@ -64,6 +65,8 @@ class RouteHelper {
             _settings.arguments as Map<String, dynamic>;
         return _pageGenerator(
             ViewPdfScreen(pdfName: _data['pdfName'], pdfUrl: _data['pdfUrl']));
+      case RouteConstants.enquiryScreen:
+        return _pageGenerator(EnquiryScreen());
       default:
         return _pageGenerator(UnknownScreen());
     }

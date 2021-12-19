@@ -35,6 +35,10 @@ final List<DrawerTile> listOfDrawerTiles = [
     routeName: RouteConstants.aboutScreen,
   ),
   DrawerTile(
+    name: 'Enquiry',
+    routeName: RouteConstants.enquiryScreen,
+  ),
+  DrawerTile(
     name: "Contact Us",
     routeName: RouteConstants.contactScreen,
   ),
