@@ -11,6 +11,7 @@ class CustomListTile extends StatelessWidget {
     required this.isLink,
     required this.placeToGoTo,
     required this.toBeReplaced,
+    this.leading,
     this.subtitle,
     this.arguments,
   }) : super(key: key);
@@ -19,6 +20,7 @@ class CustomListTile extends StatelessWidget {
   final String title, placeToGoTo;
   final Object? arguments;
   final bool haveTrailingIcon, isLink, toBeReplaced;
+  final Widget? leading;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -46,6 +48,7 @@ class CustomListTile extends StatelessWidget {
         ),
       ),
       subtitle: subtitle == null ? null : Text(subtitle!),
+      leading: leading,
       trailing: haveTrailingIcon
           ? Icon(
               Icons.arrow_forward,

@@ -16,5 +16,7 @@ class RouteConstants {
       universityDataScreen = 'unversity-data-screen',
       collegeNoticeScreen = 'college-notice-screen',
       viewPdfScreen = 'view-pdf-screen',
-      enquiryScreen = 'enquiry-screen';
+      enquiryScreen = 'enquiry-screen',
+      photoGalleryScreen = 'photo-gallery-screen',
+      facilitiesScreen = 'facilities-screen';
 }

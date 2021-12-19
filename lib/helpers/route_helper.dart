@@ -10,8 +10,10 @@ import 'package:bgiet/screens/courses_screen.dart';
 import 'package:bgiet/screens/departments_screen.dart';
 import 'package:bgiet/screens/downloads_screen.dart';
 import 'package:bgiet/screens/enquiry_screen.dart';
+import 'package:bgiet/screens/facilities_screen.dart';
 import 'package:bgiet/screens/home.dart';
 import 'package:bgiet/screens/library_screen.dart';
+import 'package:bgiet/screens/photo_gallery_screen.dart';
 import 'package:bgiet/screens/ptu_exam_webview.dart';
 import 'package:bgiet/screens/settings_screen.dart';
 import 'package:bgiet/screens/student_life_screen.dart';
@@ -50,6 +52,8 @@ class RouteHelper {
       case RouteConstants.ptuExamWebView:
         final String _url = _settings.arguments as String;
         return _pageGenerator(WebViewScreen(url: _url));
+      case RouteConstants.photoGalleryScreen:
+        return _pageGenerator(PhotoGalleryScreen());
       case RouteConstants.studentLifeScreen:
         return _pageGenerator(StudentLifeScreen());
       case RouteConstants.libraryScreen:
@@ -67,6 +71,8 @@ class RouteHelper {
             ViewPdfScreen(pdfName: _data['pdfName'], pdfUrl: _data['pdfUrl']));
       case RouteConstants.enquiryScreen:
         return _pageGenerator(EnquiryScreen());
+      case RouteConstants.facilitiesScreen:
+        return _pageGenerator(FacilitiesScreen());
       default:
         return _pageGenerator(UnknownScreen());
     }
