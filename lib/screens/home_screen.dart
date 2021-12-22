@@ -7,8 +7,8 @@ import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube_view/flutter_youtube_view.dart';
 
-class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
 
   final List<Image> _listOfImages = [
     Image.asset(
@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 Text(
-                  'Why BGIET ?',
+                  'Why BGGI ?',
                   style: Theme.of(context).primaryTextTheme.headline4,
                 ),
                 _commonFunction.descriptionText(

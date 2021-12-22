@@ -2,7 +2,9 @@
 
 import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/screens/about_screen.dart';
+import 'package:bgiet/screens/about_us_screen.dart';
 import 'package:bgiet/screens/academics_screen.dart';
+import 'package:bgiet/screens/authority_detail_screen.dart';
 import 'package:bgiet/screens/college_notice_screen.dart';
 import 'package:bgiet/screens/contact_screen.dart';
 import 'package:bgiet/screens/course_detail_screen.dart';
@@ -11,10 +13,10 @@ import 'package:bgiet/screens/departments_screen.dart';
 import 'package:bgiet/screens/downloads_screen.dart';
 import 'package:bgiet/screens/enquiry_screen.dart';
 import 'package:bgiet/screens/facilities_screen.dart';
-import 'package:bgiet/screens/home.dart';
+import 'package:bgiet/screens/home_screen.dart';
 import 'package:bgiet/screens/library_screen.dart';
+import 'package:bgiet/screens/mission_vision_screen.dart';
 import 'package:bgiet/screens/photo_gallery_screen.dart';
-import 'package:bgiet/screens/ptu_exam_webview.dart';
 import 'package:bgiet/screens/settings_screen.dart';
 import 'package:bgiet/screens/student_life_screen.dart';
 import 'package:bgiet/screens/syllabus_screen.dart';
@@ -30,7 +32,7 @@ class RouteHelper {
       case RouteConstants.aboutScreen:
         return _pageGenerator(AboutScreen());
       case '/':
-        return _pageGenerator(Home());
+        return _pageGenerator(HomeScreen());
       case RouteConstants.coursesScreen:
         final String _departmentId = _settings.arguments as String;
         return _pageGenerator(CoursesScreen(departmentId: _departmentId));
@@ -49,9 +51,6 @@ class RouteHelper {
       case RouteConstants.courseDetailScreen:
         final String _courseTitle = _settings.arguments as String;
         return _pageGenerator(CourseDetailScreen(title: _courseTitle));
-      case RouteConstants.ptuExamWebView:
-        final String _url = _settings.arguments as String;
-        return _pageGenerator(WebViewScreen(url: _url));
       case RouteConstants.photoGalleryScreen:
         return _pageGenerator(PhotoGalleryScreen());
       case RouteConstants.studentLifeScreen:
@@ -73,6 +72,13 @@ class RouteHelper {
         return _pageGenerator(EnquiryScreen());
       case RouteConstants.facilitiesScreen:
         return _pageGenerator(FacilitiesScreen());
+      case RouteConstants.aboutUsScreen:
+        return _pageGenerator(AboutUsScreen());
+      case RouteConstants.authorityDetailScreen:
+        final String _title = _settings.arguments as String;
+        return _pageGenerator(AuthorityDetailScreen(title: _title));
+      case RouteConstants.missionVisionScreen:
+        return _pageGenerator(MissionVisionScreen());
       default:
         return _pageGenerator(UnknownScreen());
     }

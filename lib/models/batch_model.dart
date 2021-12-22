@@ -35,7 +35,6 @@ class Batch {
             title: _convertedData['title'],
           ),
         );
-        print('Id: ${_fetchedData.id}');
       },
     );
   }

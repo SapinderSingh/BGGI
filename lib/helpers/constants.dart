@@ -18,5 +18,8 @@ class RouteConstants {
       viewPdfScreen = 'view-pdf-screen',
       enquiryScreen = 'enquiry-screen',
       photoGalleryScreen = 'photo-gallery-screen',
-      facilitiesScreen = 'facilities-screen';
+      facilitiesScreen = 'facilities-screen',
+      aboutUsScreen = 'about-us-screen',
+      authorityDetailScreen = 'authority-detail-screen',
+      missionVisionScreen = 'mission-vision-screen';
 }

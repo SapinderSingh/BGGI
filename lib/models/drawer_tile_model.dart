@@ -54,7 +54,7 @@ final List<DrawerTile> listOfDrawerTiles = [
   ),
   DrawerTile(
     name: "About Us",
-    routeName: RouteConstants.aboutScreen,
+    routeName: RouteConstants.aboutUsScreen,
     icon: Icons.info,
   ),
 ];

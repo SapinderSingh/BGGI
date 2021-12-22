@@ -1,8 +1,6 @@
 import 'package:bgiet/helpers/common_functions.dart';
 import 'package:bgiet/widgets/carsoul_slider.dart';
 import 'package:bgiet/widgets/custom_app_bar.dart';
-import 'package:bgiet/widgets/main_drawer.dart';
-import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
