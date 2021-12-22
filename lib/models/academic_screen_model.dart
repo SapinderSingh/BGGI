@@ -26,10 +26,6 @@ class AcademicScreenModel {
       routeName: RouteConstants.downloadsScreen,
     ),
     AcademicScreenModel(
-      name: 'College Notices',
-      routeName: RouteConstants.collegeNoticeScreen,
-    ),
-    AcademicScreenModel(
       name: "Library",
       routeName: RouteConstants.libraryScreen,
     ),

@@ -27,19 +27,20 @@ final List<DrawerTile> listOfDrawerTiles = [
     routeName: RouteConstants.studentLifeScreen,
     icon: Icons.people,
   ),
-  // DrawerTile(
-  //   name: "Settings",
-  //   routeName: RouteConstants.settingsScreen,
-  // ),
+  DrawerTile(
+    name: 'College Notices',
+    routeName: RouteConstants.collegeNoticeScreen,
+    icon: Icons.assignment,
+  ),
   DrawerTile(
     name: "University Websites",
     routeName: RouteConstants.universityDataScreen,
     icon: Icons.web,
   ),
   DrawerTile(
-    name: "About Us",
-    routeName: RouteConstants.aboutScreen,
-    icon: Icons.info,
+    name: "Settings",
+    routeName: RouteConstants.settingsScreen,
+    icon: Icons.settings,
   ),
   DrawerTile(
     name: 'Enquiry',
@@ -50,5 +51,10 @@ final List<DrawerTile> listOfDrawerTiles = [
     name: "Contact Us",
     routeName: RouteConstants.contactScreen,
     icon: Icons.phone,
+  ),
+  DrawerTile(
+    name: "About Us",
+    routeName: RouteConstants.aboutScreen,
+    icon: Icons.info,
   ),
 ];

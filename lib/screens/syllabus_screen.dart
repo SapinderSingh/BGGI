@@ -416,7 +416,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
     );
   }
 
-  _cancelButton(BuildContext ctx) => Padding(
+  Padding _cancelButton(BuildContext ctx) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40.0),
         child: ElevatedButton(
           onPressed: () => Navigator.of(ctx).pop(),
