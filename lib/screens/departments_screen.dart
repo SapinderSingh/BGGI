@@ -1,6 +1,6 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/models/department_model.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +13,7 @@ class DepartmentsScreen extends StatelessWidget {
     final Department _department =
         Provider.of<Department>(context, listen: false);
     return Scaffold(
-      appBar: customAppBar(title: 'Departments', context: context),
+      appBar: customAppBar(context, title: 'Departments'),
       body: ListView.separated(
         itemBuilder: (_, i) => CustomListTile(
           title: _department.listOfDepartments[i].title!,

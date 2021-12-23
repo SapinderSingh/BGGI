@@ -1,5 +1,5 @@
 import 'package:bgiet/helpers/common_functions.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:flutter/material.dart';
 
 class FacilitiesScreen extends StatelessWidget {
@@ -8,10 +8,7 @@ class FacilitiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(
-        title: 'Facilities',
-        context: context,
-      ),
+      appBar: customAppBar(context, title: 'Facilities'),
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: const [

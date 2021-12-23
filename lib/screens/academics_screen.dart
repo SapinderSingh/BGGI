@@ -1,9 +1,8 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/models/academic_screen_model.dart';
 import 'package:bgiet/models/department_model.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/custom_list_tile.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
-import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,10 +15,7 @@ class AcademicsScreen extends StatelessWidget {
         AcademicScreenModel.listOfAcademicTiles;
     return Scaffold(
       drawer: const MainDrawer(),
-      appBar: customAppBar(
-        context: context,
-        title: 'Academics',
-      ),
+      appBar: customAppBar(context, title: 'Academics'),
       body: pressBackAgainToClose(
         child: FutureBuilder<void>(
           future: Provider.of<Department>(context, listen: false)

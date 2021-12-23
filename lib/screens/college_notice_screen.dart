@@ -1,3 +1,4 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/models/college_notice_model.dart';
 import 'package:bgiet/widgets/custom_list_tile.dart';
@@ -10,9 +11,7 @@ class CollegeNoticeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('College Notices'),
-      ),
+      appBar: customAppBar(context, title: 'College Notices'),
       body: FutureBuilder<List<CollegeNotice>>(
         future: CollegeNotice().fetchAndSetCollegeNotices(),
         builder: (ctx, snapshot) {

@@ -1,7 +1,6 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/services/cloud_firestore_service.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
-import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -39,7 +38,7 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
     ]);
 
     return Scaffold(
-      appBar: customAppBar(title: 'Write an Enquiry', context: context),
+      appBar: customAppBar(context, title: 'Write an Enquiry'),
       drawer: const MainDrawer(),
       body: pressBackAgainToClose(
         child: Stack(

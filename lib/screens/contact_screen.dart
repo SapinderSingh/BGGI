@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:bgiet/widgets/custom_app_bar.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
+
 import 'package:bgiet/widgets/main_drawer.dart';
-import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:flutter/material.dart';
 
 class ContactScreen extends StatelessWidget {
@@ -12,10 +12,7 @@ class ContactScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const MainDrawer(),
-      appBar: customAppBar(
-        context: context,
-        title: 'Contact Us',
-      ),
+      appBar: customAppBar(context, title: 'Contact Us'),
       body: pressBackAgainToClose(
         child: Padding(
           padding: const EdgeInsets.only(left: 10),

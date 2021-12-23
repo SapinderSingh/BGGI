@@ -1,6 +1,6 @@
 import 'package:bgiet/helpers/common_functions.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/models/course_model.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,10 +20,7 @@ class CourseDetailScreen extends StatelessWidget {
       (course) => title == course.title,
     );
     return Scaffold(
-      appBar: customAppBar(
-        context: context,
-        title: _requiredCourse.nickname!,
-      ),
+      appBar: customAppBar(context, title: _requiredCourse.nickname!),
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: [

@@ -1,9 +1,7 @@
 import 'package:bgiet/helpers/common_functions.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/models/our_recruiter_model.dart';
-import 'package:bgiet/widgets/carsoul_slider.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
-import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube_view/flutter_youtube_view.dart';
 
@@ -29,10 +27,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final CommonFunctions _commonFunction = CommonFunctions();
     return Scaffold(
-      appBar: customAppBar(
-        context: context,
-        title: 'Home',
-      ),
+      appBar: customAppBar(context, title: 'Home'),
       drawer: const MainDrawer(),
       body: pressBackAgainToClose(
         child: ListView(

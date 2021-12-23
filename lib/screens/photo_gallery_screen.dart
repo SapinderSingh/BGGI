@@ -1,6 +1,6 @@
 import 'package:bgiet/helpers/common_functions.dart';
-import 'package:bgiet/widgets/carsoul_slider.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -79,10 +79,7 @@ class PhotoGalleryScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      appBar: customAppBar(
-        title: 'Photo Gallery',
-        context: context,
-      ),
+      appBar: customAppBar(context, title: 'Photo Gallery'),
       body: FutureBuilder<void>(
         future: Future.delayed(const Duration(seconds: 1)),
         builder: (context, snapshot) {

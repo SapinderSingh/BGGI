@@ -1,6 +1,6 @@
 import 'package:bgiet/helpers/common_functions.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/models/about_screen_data.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class AuthorityDetailScreen extends StatelessWidget {
@@ -17,10 +17,7 @@ class AuthorityDetailScreen extends StatelessWidget {
       (element) => element.title == title,
     );
     return Scaffold(
-      appBar: customAppBar(
-        title: _aboutScreenData.title!,
-        context: context,
-      ),
+      appBar: customAppBar(context, title: _aboutScreenData.title!),
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: [

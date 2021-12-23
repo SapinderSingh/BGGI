@@ -1,6 +1,6 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/models/course_model.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,10 +17,7 @@ class CoursesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final Course _course = Provider.of<Course>(context, listen: false);
     return Scaffold(
-      appBar: customAppBar(
-        context: context,
-        title: 'Courses',
-      ),
+      appBar: customAppBar(context, title: 'Courses'),
       body: FutureBuilder<void>(
         future: _course.fetchAndAddCoursesToList(departmentId: departmentId),
         builder: (context, snapshot) {

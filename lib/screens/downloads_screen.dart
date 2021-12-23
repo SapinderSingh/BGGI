@@ -1,5 +1,5 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/models/download_model.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:bgiet/widgets/custom_list_tile.dart';
 
 import 'package:flutter/material.dart';
@@ -11,10 +11,7 @@ class DownloadsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var listOfDownloads = Download.getDownloads;
     return Scaffold(
-      appBar: customAppBar(
-        context: context,
-        title: 'Downloads',
-      ),
+      appBar: customAppBar(context, title: 'Downloads'),
       body: ListView.separated(
         itemBuilder: (_, i) => CustomListTile(
           toBeReplaced: false,

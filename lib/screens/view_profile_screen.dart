@@ -1,4 +1,4 @@
-import 'package:bgiet/widgets/custom_app_bar.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:flutter/material.dart';
 
 class ViewProfileScreen extends StatelessWidget {
@@ -7,10 +7,7 @@ class ViewProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(
-        title: 'Profile',
-        context: context,
-      ),
+      appBar: customAppBar(context, title: 'Profile'),
     );
   }
 }

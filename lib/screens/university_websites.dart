@@ -1,8 +1,8 @@
 import 'package:bgiet/helpers/common_functions.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/models/university_screen_data.dart';
 import 'package:bgiet/widgets/custom_alert_dialog.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
-import 'package:bgiet/widgets/press_back_again_to_close.dart';
 import 'package:flutter/material.dart';
 
 class UniversityWebsites extends StatelessWidget {
@@ -12,9 +12,7 @@ class UniversityWebsites extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const MainDrawer(),
-      appBar: AppBar(
-        title: const Text('University Websites'),
-      ),
+      appBar: customAppBar(context, title: 'University Websites'),
       body: pressBackAgainToClose(
         child: ListView.separated(
           separatorBuilder: (_, __) => const Divider(),

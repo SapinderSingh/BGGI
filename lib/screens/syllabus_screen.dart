@@ -1,10 +1,10 @@
 import 'package:bgiet/helpers/common_functions.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/models/batch_model.dart';
 import 'package:bgiet/models/course_model.dart';
 import 'package:bgiet/models/department_model.dart';
 import 'package:bgiet/models/semester_model.dart';
 import 'package:bgiet/widgets/custom_alert_dialog.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -92,10 +92,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
       _semesterController.text = _selectedSemesterTitle!;
     }
     return Scaffold(
-      appBar: customAppBar(
-        context: context,
-        title: 'Syllabus',
-      ),
+      appBar: customAppBar(context, title: 'Syllabus'),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,3 +1,4 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
@@ -10,9 +11,7 @@ class ViewPdfScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(pdfName),
-      ),
+      appBar: customAppBar(context, title: pdfName),
       body: const PDF(
         autoSpacing: true,
         enableSwipe: true,

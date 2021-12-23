@@ -1,5 +1,5 @@
 import 'package:bgiet/helpers/common_functions.dart';
-import 'package:bgiet/widgets/custom_app_bar.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:flutter/material.dart';
 
 class MissionVisionScreen extends StatelessWidget {
@@ -9,10 +9,7 @@ class MissionVisionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     CommonFunctions _commonFunction = CommonFunctions();
     return Scaffold(
-      appBar: customAppBar(
-        title: 'Mission & Vision',
-        context: context,
-      ),
+      appBar: customAppBar(context, title: 'Mission & Vision'),
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: [
