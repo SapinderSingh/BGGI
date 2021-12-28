@@ -15,7 +15,10 @@ class MainDrawer extends StatelessWidget {
           isLink: false,
           placeToGoTo: listOfDrawerTiles[i].routeName,
           toBeReplaced: true,
-          leading: Icon(listOfDrawerTiles[i].icon),
+          leading: Icon(
+            listOfDrawerTiles[i].icon,
+            color: Theme.of(context).iconTheme.color,
+          ),
         ),
         separatorBuilder: (_, __) => const Divider(),
         itemCount: listOfDrawerTiles.length,

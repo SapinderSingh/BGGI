@@ -10,10 +10,6 @@ class CollegeNotice {
     this.noticeDate,
   });
 
-  // final List<CollegeNotice> _collegeNotices = [];
-
-  // List<CollegeNotice> get collegeNotices => [..._collegeNotices];
-
   Future<List<CollegeNotice>> fetchAndSetCollegeNotices() async {
     final List<CollegeNotice> _collegeNotices = [];
 

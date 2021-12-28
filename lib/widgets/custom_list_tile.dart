@@ -1,7 +1,6 @@
 import 'package:bgiet/helpers/common_functions.dart';
 import 'package:bgiet/widgets/custom_alert_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
@@ -41,11 +40,7 @@ class CustomListTile extends StatelessWidget {
                   .pushNamed(placeToGoTo, arguments: arguments),
       title: Text(
         title,
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          fontFamily: GoogleFonts.lora().fontFamily,
-        ),
+        style: Theme.of(context).primaryTextTheme.bodyText2,
       ),
       subtitle: subtitle == null ? null : Text(subtitle!),
       leading: leading,

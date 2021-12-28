@@ -10,7 +10,6 @@ class RouteConstants {
       facultyScreen = '/faculty-screen',
       settingsScreen = '/settings-screen',
       courseDetailScreen = 'course-detail-screen',
-      ptuExamWebView = '/ptu-exam-webview',
       libraryScreen = 'library-screen',
       departmentScreen = 'department-screen',
       universityDataScreen = 'unversity-data-screen',

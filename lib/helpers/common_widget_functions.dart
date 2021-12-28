@@ -42,6 +42,5 @@ AppBar customAppBar(
     AppBar(
       title: Text(
         title,
-        style: Theme.of(context).primaryTextTheme.headline6,
       ),
     );
