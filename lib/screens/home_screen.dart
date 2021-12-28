@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:bgiet/helpers/common_functions.dart';
 import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/models/our_recruiter_model.dart';
+import 'package:bgiet/widgets/custom_error_dialog.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube_view/flutter_youtube_view.dart';
@@ -23,9 +26,24 @@ class HomeScreen extends StatelessWidget {
     ),
   ];
 
+  _checkInternet(BuildContext context) async {
+    try {
+      await InternetAddress.lookup('example.com');
+    } on SocketException catch (_) {
+      showDialog(
+        context: context,
+        builder: (_) => const CustomErrorDialog(
+          contentText:
+              'Please turn on your internet connection, otherwise the app will not work properly.',
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final CommonFunctions _commonFunction = CommonFunctions();
+    _checkInternet(context);
     return Scaffold(
       appBar: customAppBar(context, title: 'Home'),
       drawer: const MainDrawer(),
@@ -44,34 +62,28 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               physics: const NeverScrollableScrollPhysics(),
               children: [
-                Text(
-                  'Why BGGI ?',
-                  style: Theme.of(context).primaryTextTheme.headline4,
-                ),
-                _commonFunction.descriptionText(
+                h4Text(context, 'Why BGGI ?'),
+                bodyText1(
                   "• Recognized as one of the centers of excellence in higher education in Northern India for more than 15 years.",
                   context,
                 ),
-                _commonFunction.descriptionText(
+                bodyText1(
                   "• The group has 10 institutes under its cap catering to 11,000 students in different streams.",
                   context,
                 ),
-                _commonFunction.descriptionText(
+                bodyText1(
                   "• Proven record of placement for students in MNCs of higher repute.",
                   context,
                 ),
-                _commonFunction.descriptionText(
+                bodyText1(
                   "• Faculty with hands-on industrial, teaching, and research experience.",
                   context,
                 ),
-                _commonFunction.descriptionText(
+                bodyText1(
                   "• Personality development classes integrated in the curriculum throughout the program.",
                   context,
                 ),
-                Text(
-                  'Campus Tour',
-                  style: Theme.of(context).primaryTextTheme.headline4,
-                ),
+                h4Text(context, 'Campus Tour'),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: SizedBox(
@@ -92,10 +104,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                  'Our Recruiters',
-                  style: Theme.of(context).primaryTextTheme.headline4,
-                ),
+                h4Text(context, 'Our Recruiters'),
                 const SizedBox(height: 10),
                 FutureBuilder<List<OurRecruiterModel>>(
                   future: OurRecruiterModel.fetchAndAddRecruitersToList(),
@@ -118,9 +127,8 @@ class HomeScreen extends StatelessWidget {
                             return Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Image.network(
+                                _commonFunction.loadImageFromNetwork(
                                   snapshot.data![index].imageUrl!,
-                                  fit: BoxFit.cover,
                                   height: 100,
                                   width: 200,
                                 ),
