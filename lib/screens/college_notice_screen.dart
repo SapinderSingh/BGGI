@@ -26,10 +26,7 @@ class CollegeNoticeScreen extends StatelessWidget {
                 itemCount: _collegeNotices.length,
                 itemBuilder: (ctx, index) {
                   final _formattedDate = DateFormat.yMd().add_jm().format(
-                        DateTime.parse(
-                          _collegeNotices[index].noticeDate!,
-                        ),
-                      );
+                      DateTime.parse(_collegeNotices[index].noticeDate!));
                   return CustomListTile(
                     subtitle: 'Uploaded On: $_formattedDate',
                     title: _collegeNotices[index].noticeTitle!,
@@ -46,7 +43,7 @@ class CollegeNoticeScreen extends StatelessWidget {
               );
             } else if (snapshot.hasError) {
               return Center(
-                child: Text('Error: ${snapshot.error}'),
+                child: bodyText2(context, 'Error: ${snapshot.error}'),
               );
             } else {
               return const Center(

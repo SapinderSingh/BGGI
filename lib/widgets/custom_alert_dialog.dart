@@ -1,3 +1,4 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:flutter/material.dart';
 
 class CustomAlertDialog extends StatelessWidget {
@@ -13,14 +14,8 @@ class CustomAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(
-        'Alert',
-        style: Theme.of(context).primaryTextTheme.headline6,
-      ),
-      content: Text(
-        content,
-        style: Theme.of(context).primaryTextTheme.bodyText1,
-      ),
+      title: h6Text(context, 'Alert'),
+      content: bodyText1WithoutPadding(context, content),
       actions: <Widget>[
         ElevatedButton(
           child: const Text('Yes'),

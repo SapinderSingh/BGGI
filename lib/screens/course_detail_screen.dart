@@ -14,7 +14,6 @@ class CourseDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CommonFunctions _commonFunction = CommonFunctions();
     final Course _course = Provider.of<Course>(context, listen: false);
     final Course _requiredCourse = _course.listOfCourses.firstWhere(
       (course) => title == course.title,
@@ -24,26 +23,12 @@ class CourseDetailScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: [
-          _commonFunction.loadImageFromNetwork(
-            _requiredCourse.imageUrl!,
-          ),
+          CommonFunctions().loadImageFromNetwork(_requiredCourse.imageUrl!),
           const SizedBox(height: 10),
-          Text(
-            'Description :',
-            style: Theme.of(context).primaryTextTheme.headline6,
-          ),
-          _commonFunction.descriptionText(
-            _requiredCourse.description!,
-            context,
-          ),
-          Text(
-            'Duration :',
-            style: Theme.of(context).primaryTextTheme.headline6,
-          ),
-          _commonFunction.descriptionText(
-            _requiredCourse.courseDuration!,
-            context,
-          ),
+          h6Text(context, 'Description :'),
+          bodyText1(_requiredCourse.description!, context),
+          h6Text(context, 'Duration :'),
+          bodyText1(_requiredCourse.courseDuration!, context),
         ],
       ),
     );

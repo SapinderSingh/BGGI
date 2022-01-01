@@ -26,7 +26,7 @@ class AcademicsScreen extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasError) {
-              return Text(snapshot.error.toString());
+              return bodyText2(context, snapshot.error.toString());
             } else {
               return ListView.separated(
                 separatorBuilder: (_, __) => const Divider(),

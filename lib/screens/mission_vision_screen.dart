@@ -15,11 +15,8 @@ class MissionVisionScreen extends StatelessWidget {
         children: [
           _commonFunction.loadImageFromNetwork(
               'https://bhaigurdas.org/wp-content/uploads/2017/03/mission.jpg'),
-          Text(
-            'Mission',
-            style: Theme.of(context).primaryTextTheme.headline4,
-          ),
-          Text(
+          h4Text(context, 'Mission'),
+          bodyText1(
             '''
 1. To develop technical manpower of quality standards with capabilities of accepting new challenges.
 
@@ -27,29 +24,23 @@ class MissionVisionScreen extends StatelessWidget {
 
 3. To promote collaborative coexistence amongst academic institute and industries for resource sharing.
           ''',
-            style: Theme.of(context).primaryTextTheme.bodyText1,
+            context,
           ),
           _commonFunction.loadImageFromNetwork(
               'https://bhaigurdas.org/wp-content/uploads/2017/03/vision.jpg'),
-          Text(
-            'Vision',
-            style: Theme.of(context).primaryTextTheme.headline4,
-          ),
-          Text(
+          h4Text(context, 'Vision'),
+          bodyText1(
             '''
 To impart value based multidisciplinary quality education to the students which can enable them to contribute their knowledge in industrial development, technology revolution and economic growth of the nation with global perspective.
           ''',
-            style: Theme.of(context).primaryTextTheme.bodyText1,
+            context,
           ),
-          Text(
-            'Quality Policy',
-            style: Theme.of(context).primaryTextTheme.headline4,
-          ),
-          Text(
+          h4Text(context, 'Quality Policy'),
+          bodyText1(
             '''
 We are committed to provide and continually improve the healthy learning environment and supporting facilities for the students at Under Graduate and Post Graduate level to achieve academic excellence for better opportunities.
           ''',
-            style: Theme.of(context).primaryTextTheme.bodyText1,
+            context,
           )
         ],
       ),

@@ -22,8 +22,7 @@ class LibraryScreen extends StatelessWidget {
           _commonFunction.loadImageFromNetwork(
             'https://bgiet.ac.in/wp-content/uploads/2017/05/lib2-300x200.jpg',
           ),
-          const SizedBox(height: 20),
-          Text(
+          bodyText1(
             '''
 The air conditioned central library is an example of excellence as regard to library services and collection. This fully computerized Wi-Fi library has on its shelves more than 67,000 volumes which include a comprehensive array of Engineering, Management, and Polytechnic in print format. It has membership of DELNET and subscription of Info Tract packages in electronic formats. Library also holds about 500 E-books collection that is available on web. The Library subscribes to about 200 current periodicals on different subjects. It also holds the back volumes of periodicals. Library also provides old question papers for the students.
 
@@ -31,7 +30,7 @@ The aesthetically designed three floored, was founded keeping in view the modern
 
 Whole collection and in-house operations are handled by highly qualified library staff. The team of Library staff consists of one Senior Librarian, Two Librarians, four Assistant Librarians, four Library Assistants and four Library Restorers. Library is fully automated by using bar code and NFC technique with the help of ERP software.
           ''',
-            style: Theme.of(context).primaryTextTheme.bodyText1,
+            context,
           )
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:flutter/material.dart';
 
 class CustomErrorDialog extends StatelessWidget {
@@ -11,13 +12,10 @@ class CustomErrorDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(
-        'Error',
-        style: Theme.of(context).primaryTextTheme.headline6,
-      ),
-      content: Text(
+      title: h6Text(context, 'Error'),
+      content: bodyText2(
+        context,
         contentText,
-        style: Theme.of(context).primaryTextTheme.bodyText1,
       ),
       actions: <Widget>[
         ElevatedButton(

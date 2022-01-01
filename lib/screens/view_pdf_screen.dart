@@ -20,12 +20,10 @@ class ViewPdfScreen extends StatelessWidget {
       ).cachedFromUrl(
         pdfUrl,
         placeholder: (progress) => Center(
-          child: Text('Loading: $progress %'),
+          child: bodyText2(context, 'Loading: $progress %'),
         ),
         errorWidget: (error) => Center(
-          child: Text(
-            error.toString(),
-          ),
+          child: bodyText2(context, error.toString()),
         ),
       ),
     );

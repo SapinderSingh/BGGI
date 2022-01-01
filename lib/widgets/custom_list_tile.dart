@@ -1,4 +1,5 @@
 import 'package:bgiet/helpers/common_functions.dart';
+import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/widgets/custom_alert_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -38,10 +39,7 @@ class CustomListTile extends StatelessWidget {
                   .pushReplacementNamed(placeToGoTo, arguments: arguments)
               : Navigator.of(context)
                   .pushNamed(placeToGoTo, arguments: arguments),
-      title: Text(
-        title,
-        style: Theme.of(context).primaryTextTheme.bodyText2,
-      ),
+      title: bodyText2(context, title),
       subtitle: subtitle == null ? null : Text(subtitle!),
       leading: leading,
       trailing: haveTrailingIcon

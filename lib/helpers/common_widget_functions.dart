@@ -44,3 +44,29 @@ AppBar customAppBar(
         title,
       ),
     );
+
+Text h4Text(BuildContext context, String text) =>
+    Text(text, style: Theme.of(context).primaryTextTheme.headline4);
+
+Text h6Text(BuildContext context, String text) =>
+    Text(text, style: Theme.of(context).primaryTextTheme.headline6);
+
+Padding bodyText1(String text, BuildContext context) => Padding(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    child: Text(text, style: Theme.of(context).primaryTextTheme.bodyText1));
+
+Text bodyText1WithoutPadding(BuildContext context, String text) =>
+    Text(text, style: Theme.of(context).primaryTextTheme.bodyText1);
+
+Text bodyText2(BuildContext context, String text) =>
+    Text(text, style: Theme.of(context).primaryTextTheme.bodyText2);
+
+SizedBox customHeightSizedBox(int height, BuildContext context) {
+  final _screenHeight = MediaQuery.of(context).size.height;
+  switch (height) {
+    case 10:
+      return SizedBox(height: 10);
+    default:
+      return SizedBox(height: _screenHeight * height / 100);
+  }
+}

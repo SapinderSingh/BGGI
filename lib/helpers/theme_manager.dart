@@ -40,12 +40,12 @@ class ThemeManager with ChangeNotifier {
       color: Colors.amber,
       iconTheme: IconThemeData(color: Colors.black));
 
-  TextTheme getPrimaryTextTheme({required bool isDark}) {
+  TextTheme _getPrimaryTextTheme({required bool isDark}) {
     return TextTheme(
-      headline6: const TextStyle(
+      headline6: TextStyle(
         fontFamily: 'Lora',
         fontWeight: FontWeight.bold,
-        color: Colors.black,
+        color: isDark ? Colors.white : Colors.black,
       ),
       headline4: TextStyle(
         fontFamily: 'Lora',
@@ -77,11 +77,34 @@ class ThemeManager with ChangeNotifier {
       ),
       iconTheme: const IconThemeData(color: Colors.amber),
       appBarTheme: _getAppBarTheme(),
-      primaryTextTheme: getPrimaryTextTheme(isDark: true),
+      primaryTextTheme: _getPrimaryTextTheme(isDark: true),
+      elevatedButtonTheme: _getElevatedButtonTheme(),
+      textButtonTheme: _getTextButtonTheme(),
     );
-
     return _darkTheme;
   }
+
+  _getElevatedButtonTheme() => ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          textStyle: const TextStyle(
+            fontFamily: 'Lora',
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+        ),
+      );
+
+  _getTextButtonTheme() => TextButtonThemeData(
+        style: TextButton.styleFrom(
+          textStyle: const TextStyle(
+            fontFamily: 'Lora',
+            color: Colors.amber,
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
+        ),
+      );
 
   ThemeData lightTheme() {
     final _lightTheme = ThemeData(
@@ -95,9 +118,10 @@ class ThemeManager with ChangeNotifier {
       iconTheme: const IconThemeData(color: Colors.amber),
       appBarTheme: _getAppBarTheme(),
       scaffoldBackgroundColor: Colors.amber[50],
-      primaryTextTheme: getPrimaryTextTheme(isDark: false),
+      primaryTextTheme: _getPrimaryTextTheme(isDark: false),
+      elevatedButtonTheme: _getElevatedButtonTheme(),
+      textButtonTheme: _getTextButtonTheme(),
     );
-
     return _lightTheme;
   }
 

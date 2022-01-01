@@ -54,12 +54,9 @@ class HomeScreen extends StatelessWidget {
               listOfAssetImage: _listOfImages,
               isNetworkImage: false,
             ),
-            const SizedBox(
-              height: 20,
-            ),
             ListView(
               shrinkWrap: true,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.all(10),
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 h4Text(context, 'Why BGGI ?'),
@@ -115,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                       );
                     } else {
                       return SizedBox(
-                        height: 140,
+                        height: 145,
                         width: 200,
                         child: ListView.separated(
                           separatorBuilder: (_, __) =>
@@ -132,14 +129,9 @@ class HomeScreen extends StatelessWidget {
                                   height: 100,
                                   width: 200,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    snapshot.data![index].title!,
-                                    style: Theme.of(context)
-                                        .primaryTextTheme
-                                        .bodyText1,
-                                  ),
+                                bodyText1(
+                                  snapshot.data![index].title!,
+                                  context,
                                 ),
                               ],
                             );

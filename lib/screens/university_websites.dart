@@ -36,7 +36,7 @@ class UniversityWebsites extends StatelessWidget {
                   },
                 ),
               ),
-              title: Text(_unvDataList[i].title!),
+              title: bodyText2(context, _unvDataList[i].title!),
               subtitle: Text(_unvDataList[i].departmentName!),
             );
           },

@@ -1,5 +1,6 @@
 import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/services/cloud_firestore_service.dart';
+import 'package:bgiet/widgets/custom_error_dialog.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -27,6 +28,8 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
 
     final _phoneNumberValidator = MultiValidator([
       RequiredValidator(errorText: 'Phone number is required'),
+      PatternValidator('^[0-9]*\$',
+          errorText: 'Phone number should contain only numbers'),
       MinLengthValidator(
         10,
         errorText: 'Minimum length of phone number should be 10',
@@ -135,12 +138,11 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
                                 MaterialBanner(
                                   content: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        vertical: 8.0),
-                                    child: Text(
+                                      vertical: 8.0,
+                                    ),
+                                    child: bodyText1WithoutPadding(
+                                      context,
                                       'Hey ${_name!.split(" ")[0]}, Your query submitted successfully! We will contact you soon.',
-                                      style: Theme.of(context)
-                                          .primaryTextTheme
-                                          .bodyText1,
                                     ),
                                   ),
                                   actions: [
@@ -153,8 +155,18 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
                                   ],
                                 ),
                               );
+                            } else {
+                              setState(() {
+                                _isLoading = false;
+                              });
+                              showDialog(
+                                context: context,
+                                builder: (_) => const CustomErrorDialog(
+                                  contentText:
+                                      'Please fill all the fields correctly.',
+                                ),
+                              );
                             }
-
                             setState(() {
                               _isLoading = false;
                             });

@@ -89,25 +89,19 @@ class PhotoGalleryScreen extends StatelessWidget {
             );
           } else if (snapshot.hasError) {
             return Center(
-              child: Text(snapshot.error.toString()),
+              child: bodyText2(context, snapshot.error.toString()),
             );
           } else {
             return ListView(
               padding: const EdgeInsets.all(10),
               children: [
-                Text(
-                  'Athletics & Recreation',
-                  style: Theme.of(context).primaryTextTheme.headline6,
-                ),
+                h6Text(context, 'Athletics & Recreation'),
                 const SizedBox(height: 10),
                 customCarouselSlider(
                   listOfNetworkImages: _listOfAthleticImages,
                 ),
                 const SizedBox(height: 20),
-                Text(
-                  'Housing & Dining',
-                  style: Theme.of(context).primaryTextTheme.headline6,
-                ),
+                h6Text(context, 'Housing & Dining'),
                 const SizedBox(height: 10),
                 customCarouselSlider(
                   listOfNetworkImages: _listOfHousingImages,

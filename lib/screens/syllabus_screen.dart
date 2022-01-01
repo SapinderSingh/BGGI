@@ -153,12 +153,12 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
         children: [
           if (_listOfDepartments.isEmpty)
             Column(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   height: 15,
                 ),
-                Text('No Departments Added'),
-                SizedBox(
+                bodyText2(context, 'No Departments Added'),
+                const SizedBox(
                   height: 15,
                 ),
               ],
@@ -168,7 +168,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
               children: List.generate(
                 _listOfDepartments.length,
                 (index) => RadioListTile<String>(
-                  title: Text(_listOfDepartments[index].title!),
+                  title: bodyText2(context, _listOfDepartments[index].title!),
                   value: _listOfDepartments[index].title!,
                   toggleable: true,
                   groupValue: _selectedDepartmentTitle,
@@ -228,12 +228,12 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
         children: [
           if (_listOfCourses.isEmpty)
             Column(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   height: 15,
                 ),
-                Text('No Courses Added'),
-                SizedBox(
+                bodyText2(context, 'No Courses Added'),
+                const SizedBox(
                   height: 15,
                 ),
               ],
@@ -243,7 +243,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
               children: List.generate(
                 _listOfCourses.length,
                 (index) => RadioListTile<String>(
-                  title: Text(_listOfCourses[index].title!),
+                  title: bodyText2(context, _listOfCourses[index].title!),
                   value: _listOfCourses[index].title!,
                   toggleable: true,
                   groupValue: _selectedCourseTitle,
@@ -297,12 +297,12 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
         children: [
           if (_listOfBatches.isEmpty)
             Column(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   height: 15,
                 ),
-                Text('No Batches Added'),
-                SizedBox(
+                bodyText2(context, 'No Batches Added'),
+                const SizedBox(
                   height: 15,
                 ),
               ],
@@ -312,7 +312,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
               children: List.generate(
                 _listOfBatches.length,
                 (index) => RadioListTile<String>(
-                  title: Text(_listOfBatches[index].title!),
+                  title: bodyText2(context, _listOfBatches[index].title!),
                   value: _listOfBatches[index].title!,
                   toggleable: true,
                   groupValue: _selectedBatchTitle,
@@ -363,12 +363,12 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
         children: [
           if (_listOfSemesters.isEmpty)
             Column(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   height: 15,
                 ),
-                Text('No Semesters Added'),
-                SizedBox(
+                bodyText2(context, 'No Semesters Added'),
+                const SizedBox(
                   height: 15,
                 ),
               ],
@@ -378,7 +378,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
               children: List.generate(
                 _listOfSemesters.length,
                 (index) => RadioListTile<String>(
-                  title: Text(_listOfSemesters[index].title!),
+                  title: bodyText2(context, _listOfSemesters[index].title!),
                   value: _listOfSemesters[index].title!,
                   toggleable: true,
                   groupValue: _selectedSemesterTitle,
@@ -417,9 +417,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 40.0),
         child: ElevatedButton(
           onPressed: () => Navigator.of(ctx).pop(),
-          child: const Text(
-            'Cancel',
-          ),
+          child: const Text('Cancel'),
         ),
       );
 }

@@ -1,6 +1,5 @@
 import 'package:bgiet/helpers/common_widget_functions.dart';
 import 'package:bgiet/helpers/theme_manager.dart';
-
 import 'package:bgiet/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,34 +24,39 @@ class SettingsScreen extends StatelessWidget {
             Consumer<ThemeManager>(
               builder: (context, theme, _) {
                 return ListTile(
-                  title: const Text('Select Theme'),
+                  title: bodyText2(context, 'Select Theme'),
                   trailing: PopupMenuButton(
                     tooltip: 'Select Theme',
                     child: SizedBox(
-                      width: 140,
+                      width: 150,
                       height: 50,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(theme.themeName),
-                          const SizedBox(width: 10),
-                          const Icon(Icons.expand_more),
-                        ],
+                      child: FittedBox(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            bodyText1WithoutPadding(context, theme.themeName),
+                            const SizedBox(width: 10),
+                            Icon(
+                              Icons.expand_more,
+                              color: Theme.of(context).iconTheme.color,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     onSelected: theme.onThemeSelected,
-                    itemBuilder: (context) => const [
+                    itemBuilder: (context) => [
                       PopupMenuItem(
                         value: AppTheme.darkTheme,
-                        child: Text('Dark Theme'),
+                        child: bodyText1WithoutPadding(context, 'Dark Theme'),
                       ),
                       PopupMenuItem(
                         value: AppTheme.lightTheme,
-                        child: Text('Light Theme'),
+                        child: bodyText1WithoutPadding(context, 'Light Theme'),
                       ),
                       PopupMenuItem(
                         value: AppTheme.systemTheme,
-                        child: Text('System Theme'),
+                        child: bodyText1WithoutPadding(context, 'System Theme'),
                       ),
                     ],
                   ),
@@ -61,20 +65,20 @@ class SettingsScreen extends StatelessWidget {
             ),
             const Divider(),
             ListTile(
-              title: Text('Report a bug'),
+              title: bodyText2(context, 'Report a bug'),
             ),
             const Divider(),
             ListTile(
-              title: Text('License'),
+              title: bodyText2(context, 'License'),
             ),
             const Divider(),
             ListTile(
-              title: Text('Feature Request'),
+              title: bodyText2(context, 'Feature Request'),
             ),
             const Divider(),
-            const ListTile(
-              title: Text('App Version'),
-              subtitle: Text('1.0.0'),
+            ListTile(
+              title: bodyText2(context, 'App Version'),
+              subtitle: const Text('1.0.0'),
             ),
           ],
         ),

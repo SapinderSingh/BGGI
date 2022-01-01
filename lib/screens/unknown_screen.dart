@@ -10,8 +10,8 @@ class UnknownScreen extends StatelessWidget {
     return Scaffold(
       drawer: const MainDrawer(),
       appBar: customAppBar(context, title: 'Unknown'),
-      body: const Center(
-        child: Text('This screen is under development.'),
+      body: Center(
+        child: bodyText2(context, 'This screen is under development.'),
       ),
     );
   }

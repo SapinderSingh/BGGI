@@ -81,24 +81,12 @@ class _FacilityWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          title,
-          style: Theme.of(context).primaryTextTheme.headline4,
-        ),
+        h4Text(context, title),
         const SizedBox(
           height: 10,
         ),
         CommonFunctions().loadImageFromNetwork(imageUrl),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          description,
-          style: Theme.of(context).primaryTextTheme.bodyText1,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
+        bodyText1(description, context),
       ],
     );
   }
