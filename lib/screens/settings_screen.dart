@@ -1,4 +1,5 @@
 import 'package:bgiet/helpers/common_widget_functions.dart';
+import 'package:bgiet/helpers/constants.dart';
 import 'package:bgiet/helpers/theme_manager.dart';
 import 'package:bgiet/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
@@ -96,7 +97,9 @@ class SettingsScreen extends StatelessWidget {
             ),
             const Divider(),
             ListTile(
-              onTap: () {},
+              onTap: () => Navigator.of(context).pushNamed(
+                RouteConstants.creditsScreen,
+              ),
               title: bodyText2(context, 'Credits'),
             ),
             const Divider(),

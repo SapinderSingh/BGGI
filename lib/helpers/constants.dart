@@ -21,5 +21,6 @@ class RouteConstants {
       aboutUsScreen = 'about-us-screen',
       authorityDetailScreen = 'authority-detail-screen',
       missionVisionScreen = 'mission-vision-screen',
-      developerScreen = 'developer-screen';
+      developerScreen = 'developer-screen',
+      creditsScreen = 'credits-screen';
 }

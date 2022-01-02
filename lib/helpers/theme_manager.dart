@@ -3,7 +3,7 @@ import 'package:bgiet/screens/settings_screen.dart' show AppTheme;
 import 'package:flutter/material.dart';
 
 class ThemeManager with ChangeNotifier {
-  String _themeName = 'System Theme';
+  String? _themeName;
   ThemeMode? _themeMode;
 
   ThemeMode get themeMode => _themeMode ?? ThemeMode.system;
@@ -12,7 +12,7 @@ class ThemeManager with ChangeNotifier {
 
   ThemeData get getDarkTheme => darkTheme();
 
-  String get themeName => _themeName;
+  String get themeName => _themeName ?? 'System Theme';
 
   final StorageManager _storageManager = StorageManager();
 
@@ -21,10 +21,13 @@ class ThemeManager with ChangeNotifier {
       var themeMode = value ?? 'system';
       if (themeMode == 'light') {
         _themeMode = ThemeMode.light;
+        _themeName = 'Light Theme';
       } else if (themeMode == 'system') {
         _themeMode = ThemeMode.system;
+        _themeName = 'System Theme';
       } else {
         _themeMode = ThemeMode.dark;
+        _themeName = 'Dark Theme';
       }
       notifyListeners();
     });

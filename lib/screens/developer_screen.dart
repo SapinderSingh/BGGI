@@ -23,8 +23,9 @@ class DeveloperScreen extends StatelessWidget {
               const SizedBox(height: 20),
               const Center(
                 child: CircleAvatar(
+                  child: CircularProgressIndicator(),
                   radius: 100,
-                  backgroundImage: NetworkImage(
+                  foregroundImage: NetworkImage(
                       'https://firebasestorage.googleapis.com/v0/b/bgiet-fbe7c.appspot.com/o/Images%2FWhatsApp%20Image%202020-03-13%20at%205.40.15%20AM.jpeg?alt=media&token=6b38dd4f-9b71-4019-89b0-ee3f89e663b0'),
                 ),
               ),
