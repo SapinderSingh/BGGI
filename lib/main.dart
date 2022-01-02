@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         builder: (context, _themeData, _) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'BGIET',
+            title: 'BGGI',
             onGenerateRoute: RouteHelper.onGenerateRoute,
             themeMode: _themeData.themeMode,
             theme: _themeData.getLightTheme,

@@ -60,13 +60,3 @@ Text bodyText1WithoutPadding(BuildContext context, String text) =>
 
 Text bodyText2(BuildContext context, String text) =>
     Text(text, style: Theme.of(context).primaryTextTheme.bodyText2);
-
-SizedBox customHeightSizedBox(int height, BuildContext context) {
-  final _screenHeight = MediaQuery.of(context).size.height;
-  switch (height) {
-    case 10:
-      return SizedBox(height: 10);
-    default:
-      return SizedBox(height: _screenHeight * height / 100);
-  }
-}

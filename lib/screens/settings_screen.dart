@@ -45,7 +45,7 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     ),
                     onSelected: theme.onThemeSelected,
-                    itemBuilder: (context) => [
+                    itemBuilder: (context) => <PopupMenuEntry<AppTheme>>[
                       PopupMenuItem(
                         value: AppTheme.darkTheme,
                         child: bodyText1WithoutPadding(context, 'Dark Theme'),
@@ -65,15 +65,44 @@ class SettingsScreen extends StatelessWidget {
             ),
             const Divider(),
             ListTile(
+              title: bodyText2(context, 'Licenses'),
+              trailing: Icon(
+                Icons.arrow_forward_sharp,
+                color: Theme.of(context).iconTheme.color,
+              ),
+              onTap: () => showLicensePage(
+                context: context,
+                applicationName: 'BGGI',
+                applicationVersion: '1.0.0',
+                applicationLegalese: '© Copyright 2022',
+                applicationIcon: Image.asset(
+                  'assets/images/splash_image_light.png',
+                ),
+              ),
+            ),
+            const Divider(),
+            ListTile(
+              trailing: Icon(
+                Icons.bug_report,
+                color: Theme.of(context).iconTheme.color,
+              ),
+              onTap: () {},
               title: bodyText2(context, 'Report a bug'),
             ),
             const Divider(),
             ListTile(
-              title: bodyText2(context, 'License'),
+              onTap: () {},
+              title: bodyText2(context, 'Feature Request'),
             ),
             const Divider(),
             ListTile(
-              title: bodyText2(context, 'Feature Request'),
+              onTap: () {},
+              title: bodyText2(context, 'Credits'),
+            ),
+            const Divider(),
+            ListTile(
+              onTap: () {},
+              title: bodyText2(context, 'Rate us on Play Store'),
             ),
             const Divider(),
             ListTile(

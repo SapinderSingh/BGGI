@@ -21,7 +21,10 @@ class UniversityWebsites extends StatelessWidget {
             final List<UniversityScreenData> _unvDataList =
                 UniversityScreenData.universityScreenDataList;
             return ListTile(
-              trailing: const Icon(Icons.arrow_forward),
+              trailing: Icon(
+                Icons.arrow_forward,
+                color: Theme.of(context).iconTheme.color,
+              ),
               onTap: () => showDialog(
                 context: context,
                 builder: (_) => CustomAlertDialog(

@@ -48,6 +48,11 @@ final List<DrawerTile> listOfDrawerTiles = [
     icon: Icons.mail,
   ),
   DrawerTile(
+    name: 'Developer\'s',
+    routeName: RouteConstants.developerScreen,
+    icon: Icons.code,
+  ),
+  DrawerTile(
     name: "Contact Us",
     routeName: RouteConstants.contactScreen,
     icon: Icons.phone,

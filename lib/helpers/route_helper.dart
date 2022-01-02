@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bgiet/helpers/constants.dart';
+import 'package:bgiet/models/developer_screen.dart';
 import 'package:bgiet/screens/about_screen.dart';
 import 'package:bgiet/screens/about_us_screen.dart';
 import 'package:bgiet/screens/academics_screen.dart';
@@ -79,6 +80,8 @@ class RouteHelper {
         return _pageGenerator(AuthorityDetailScreen(title: _title));
       case RouteConstants.missionVisionScreen:
         return _pageGenerator(MissionVisionScreen());
+      case RouteConstants.developerScreen:
+        return _pageGenerator(DeveloperScreen());
       default:
         return _pageGenerator(UnknownScreen());
     }
