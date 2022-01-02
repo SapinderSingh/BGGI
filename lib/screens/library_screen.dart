@@ -11,14 +11,14 @@ class LibraryScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, title: 'Library'),
       body: ListView(
-        padding: const EdgeInsets.all(10),
+        padding: dynamicPadding(context, padding: 10),
         children: [
           Image.asset(
             'assets/images/lib1.jpg',
             fit: BoxFit.cover,
             filterQuality: FilterQuality.high,
           ),
-          const SizedBox(height: 20),
+          dynamicHeightSizedBox(context, height: 20),
           _commonFunction.loadImageFromNetwork(
             'https://bgiet.ac.in/wp-content/uploads/2017/05/lib2-300x200.jpg',
           ),

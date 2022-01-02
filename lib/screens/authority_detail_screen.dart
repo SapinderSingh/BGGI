@@ -11,13 +11,11 @@ class AuthorityDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AboutScreenData _aboutScreenData =
-        AboutScreenData.listOfAboutScreenData.firstWhere(
-      (element) => element.title == title,
-    );
+        AboutScreenData.findDataByTitle(title);
     return Scaffold(
       appBar: customAppBar(context, title: _aboutScreenData.title!),
       body: ListView(
-        padding: const EdgeInsets.all(10),
+        padding: dynamicPadding(context, padding: 10),
         children: [
           CommonFunctions().loadImageFromNetwork(_aboutScreenData.imageUrl!),
           h4Text(context, _aboutScreenData.name!),

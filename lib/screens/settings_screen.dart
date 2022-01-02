@@ -16,6 +16,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: const MainDrawer(),
       appBar: customAppBar(context, title: 'Settings'),
@@ -29,14 +30,14 @@ class SettingsScreen extends StatelessWidget {
                   trailing: PopupMenuButton(
                     tooltip: 'Select Theme',
                     child: SizedBox(
-                      width: 150,
-                      height: 50,
+                      width: _width / 2.94,
+                      height: _width / 8.82,
                       child: FittedBox(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             bodyText1WithoutPadding(context, theme.themeName),
-                            const SizedBox(width: 10),
+                            dynamicWidthSizedBox(context, width: 10),
                             Icon(
                               Icons.expand_more,
                               color: Theme.of(context).iconTheme.color,

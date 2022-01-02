@@ -13,7 +13,7 @@ class CreditsScreen extends StatelessWidget {
         title: const Text('Credits'),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(10),
+        padding: dynamicPadding(context, padding: 10),
         children: [
           h6Text(context, 'Images Credits: '),
           _customTextButton(
@@ -36,14 +36,14 @@ class CreditsScreen extends StatelessWidget {
             title: 'Google Image Search',
             url: 'https://www.google.com/imghp?hl=en',
           ),
-          Divider(),
+          const Divider(),
           h6Text(context, 'Course Descriptions: '),
           _customTextButton(
             context,
             title: 'CollegeDunia.com',
             url: 'https://www.collegedunia.com/',
           ),
-          Divider(),
+          const Divider(),
           h6Text(context, 'Made Using: '),
           _customTextButton(
             context,

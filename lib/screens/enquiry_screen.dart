@@ -60,7 +60,7 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
             Form(
               key: _formKey,
               child: ListView(
-                padding: const EdgeInsets.all(10),
+                padding: dynamicPadding(context, padding: 10),
                 children: [
                   TextFormField(
                     enabled: !_isLoading,
@@ -73,7 +73,7 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
                     validator: RequiredValidator(errorText: 'Name is required'),
                     onSaved: (value) => _name = value!,
                   ),
-                  const SizedBox(height: 10),
+                  dynamicHeightSizedBox(context, height: 10),
                   TextFormField(
                     enabled: !_isLoading,
                     textInputAction: TextInputAction.next,
@@ -86,7 +86,7 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
                     validator: _phoneNumberValidator,
                     onSaved: (value) => _phone = value!,
                   ),
-                  const SizedBox(height: 10),
+                  dynamicHeightSizedBox(context, height: 10),
                   TextFormField(
                     enabled: !_isLoading,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -99,7 +99,7 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
                       labelText: 'Email',
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  dynamicHeightSizedBox(context, height: 10),
                   TextFormField(
                     enabled: !_isLoading,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -115,7 +115,7 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
                     ),
                     maxLines: 10,
                   ),
-                  const SizedBox(height: 20),
+                  dynamicHeightSizedBox(context, height: 20),
                   ElevatedButton(
                     onPressed: !_isLoading
                         ? () async {

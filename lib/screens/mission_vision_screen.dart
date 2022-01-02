@@ -11,7 +11,7 @@ class MissionVisionScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, title: 'Mission & Vision'),
       body: ListView(
-        padding: const EdgeInsets.all(10),
+        padding: dynamicPadding(context, padding: 10),
         children: [
           _commonFunction.loadImageFromNetwork(
               'https://bhaigurdas.org/wp-content/uploads/2017/03/mission.jpg'),

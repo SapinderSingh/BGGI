@@ -9,7 +9,7 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, title: 'About'),
       body: ListView(
-        padding: const EdgeInsets.all(10),
+        padding: dynamicPadding(context, padding: 10),
         children: [
           Image.asset(
             'assets/images/1.jpg',

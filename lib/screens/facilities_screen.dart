@@ -10,7 +10,7 @@ class FacilitiesScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, title: 'Facilities'),
       body: ListView(
-        padding: const EdgeInsets.all(10),
+        padding: dynamicPadding(context, padding: 10),
         children: const [
           _FacilityWidget(
             title: 'WI-FI CAMPUS',
@@ -82,9 +82,7 @@ class _FacilityWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         h4Text(context, title),
-        const SizedBox(
-          height: 10,
-        ),
+        dynamicHeightSizedBox(context, height: 10),
         CommonFunctions().loadImageFromNetwork(imageUrl),
         bodyText1(description, context),
       ],

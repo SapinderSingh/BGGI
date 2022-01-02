@@ -46,7 +46,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
     required String hintText,
   }) =>
       Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: dynamicPadding(context, padding: 16),
         child: TextField(
           enabled: isEnabled,
           autocorrect: false,
@@ -154,13 +154,9 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
           if (_listOfDepartments.isEmpty)
             Column(
               children: [
-                const SizedBox(
-                  height: 15,
-                ),
+                dynamicHeightSizedBox(context, height: 15),
                 bodyText2(context, 'No Departments Added'),
-                const SizedBox(
-                  height: 15,
-                ),
+                dynamicHeightSizedBox(context, height: 15),
               ],
             )
           else
@@ -229,13 +225,9 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
           if (_listOfCourses.isEmpty)
             Column(
               children: [
-                const SizedBox(
-                  height: 15,
-                ),
+                dynamicHeightSizedBox(context, height: 15),
                 bodyText2(context, 'No Courses Added'),
-                const SizedBox(
-                  height: 15,
-                ),
+                dynamicHeightSizedBox(context, height: 15),
               ],
             )
           else
@@ -298,13 +290,9 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
           if (_listOfBatches.isEmpty)
             Column(
               children: [
-                const SizedBox(
-                  height: 15,
-                ),
+                dynamicHeightSizedBox(context, height: 15),
                 bodyText2(context, 'No Batches Added'),
-                const SizedBox(
-                  height: 15,
-                ),
+                dynamicHeightSizedBox(context, height: 15),
               ],
             )
           else
@@ -364,13 +352,9 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
           if (_listOfSemesters.isEmpty)
             Column(
               children: [
-                const SizedBox(
-                  height: 15,
-                ),
+                dynamicHeightSizedBox(context, height: 15),
                 bodyText2(context, 'No Semesters Added'),
-                const SizedBox(
-                  height: 15,
-                ),
+                dynamicHeightSizedBox(context, height: 15),
               ],
             )
           else

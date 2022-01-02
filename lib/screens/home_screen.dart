@@ -43,6 +43,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CommonFunctions _commonFunction = CommonFunctions();
+    final double _width = MediaQuery.of(context).size.width;
     _checkInternet(context);
     return Scaffold(
       appBar: customAppBar(context, title: 'Home'),
@@ -56,7 +57,7 @@ class HomeScreen extends StatelessWidget {
             ),
             ListView(
               shrinkWrap: true,
-              padding: const EdgeInsets.all(10),
+              padding: dynamicPadding(context, padding: 10),
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 h4Text(context, 'Why BGGI ?'),
@@ -82,9 +83,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 h4Text(context, 'Campus Tour'),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: EdgeInsets.symmetric(vertical: _width / 44.1),
                   child: SizedBox(
-                    height: 220,
+                    height: _width / 2,
                     child: FlutterYoutubeView(
                       onViewCreated: (FlutterYoutubeViewController c) {
                         c.initialization();
@@ -102,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 h4Text(context, 'Our Recruiters'),
-                const SizedBox(height: 10),
+                dynamicHeightSizedBox(context, height: 10),
                 FutureBuilder<List<OurRecruiterModel>>(
                   future: OurRecruiterModel.fetchAndAddRecruitersToList(),
                   builder: (context, snapshot) {
@@ -112,8 +113,8 @@ class HomeScreen extends StatelessWidget {
                       );
                     } else {
                       return SizedBox(
-                        height: 145,
-                        width: 200,
+                        height: _width / 2.94,
+                        width: (_width / 2) - 20,
                         child: ListView.separated(
                           separatorBuilder: (_, __) =>
                               const VerticalDivider(endIndent: 30),
@@ -126,8 +127,8 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 _commonFunction.loadImageFromNetwork(
                                   snapshot.data![index].imageUrl!,
-                                  height: 100,
-                                  width: 200,
+                                  height: _width / 4.41,
+                                  width: _width / 2,
                                 ),
                                 bodyText1(
                                   snapshot.data![index].title!,

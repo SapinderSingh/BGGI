@@ -48,6 +48,9 @@ I invite you to browse our Website and App to learn more about our engineering, 
           '''),
   ];
 
-  static List<AboutScreenData> get listOfAboutScreenData =>
-      [..._listOfAboutScreenData];
+  static AboutScreenData findDataByTitle(String title) {
+    return _listOfAboutScreenData.firstWhere(
+      (element) => element.title == title,
+    );
+  }
 }

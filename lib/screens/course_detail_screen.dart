@@ -21,10 +21,10 @@ class CourseDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, title: _requiredCourse.nickname!),
       body: ListView(
-        padding: const EdgeInsets.all(10),
+        padding: dynamicPadding(context, padding: 10),
         children: [
           CommonFunctions().loadImageFromNetwork(_requiredCourse.imageUrl!),
-          const SizedBox(height: 10),
+          dynamicHeightSizedBox(context, height: 10),
           h6Text(context, 'Description :'),
           bodyText1(_requiredCourse.description!, context),
           h6Text(context, 'Duration :'),

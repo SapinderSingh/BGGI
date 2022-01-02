@@ -93,20 +93,20 @@ class PhotoGalleryScreen extends StatelessWidget {
             );
           } else {
             return ListView(
-              padding: const EdgeInsets.all(10),
+              padding: dynamicPadding(context, padding: 10),
               children: [
                 h6Text(context, 'Athletics & Recreation'),
-                const SizedBox(height: 10),
+                dynamicHeightSizedBox(context, height: 10),
                 customCarouselSlider(
                   listOfNetworkImages: _listOfAthleticImages,
                 ),
-                const SizedBox(height: 20),
+                dynamicHeightSizedBox(context, height: 20),
                 h6Text(context, 'Housing & Dining'),
-                const SizedBox(height: 10),
+                dynamicHeightSizedBox(context, height: 10),
                 customCarouselSlider(
                   listOfNetworkImages: _listOfHousingImages,
                 ),
-                const SizedBox(height: 20),
+                dynamicHeightSizedBox(context, height: 20),
                 customCarouselSlider(
                   listOfNetworkImages: _listOfDiningImages,
                 ),
