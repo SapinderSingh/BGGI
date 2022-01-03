@@ -17,6 +17,9 @@ class Course with ChangeNotifier {
 
   List<Course> get listOfCourses => [..._listOfCourses];
 
+  Course findCourseByTitle(String title) =>
+      _listOfCourses.firstWhere((course) => course.title == title);
+
   Future<void> fetchAndAddCoursesToList({required String departmentId}) async {
     CollectionReference _courses = FirebaseFirestore.instance
         .collection('departments/$departmentId/courses');

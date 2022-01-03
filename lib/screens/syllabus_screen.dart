@@ -142,9 +142,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
     );
   }
 
-  void _openDepartmentSelectionDialog(
-    BuildContext ctx,
-  ) {
+  void _openDepartmentSelectionDialog(BuildContext ctx) {
     final List<Department> _listOfDepartments =
         Provider.of<Department>(ctx, listen: false).listOfDepartments;
     showDialog(
@@ -398,7 +396,9 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
   }
 
   Padding _cancelButton(BuildContext ctx) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width / 10,
+        ),
         child: ElevatedButton(
           onPressed: () => Navigator.of(ctx).pop(),
           child: const Text('Cancel'),

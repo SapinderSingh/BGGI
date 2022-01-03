@@ -52,7 +52,9 @@ Text h6Text(BuildContext context, String text) =>
     Text(text, style: Theme.of(context).primaryTextTheme.headline6);
 
 Padding bodyText1(String text, BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(vertical: 10),
+    padding: EdgeInsets.symmetric(
+      vertical: MediaQuery.of(context).size.width / 44.1,
+    ),
     child: Text(text, style: Theme.of(context).primaryTextTheme.bodyText1));
 
 Text bodyText1WithoutPadding(BuildContext context, String text) =>

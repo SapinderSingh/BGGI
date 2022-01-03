@@ -18,7 +18,6 @@ class StudentLifeScreen extends StatelessWidget {
           itemBuilder: (_, i) {
             List<StudentLifeScreenData> _listOfData =
                 StudentLifeScreenData.listOfStudentLifeData;
-
             return CustomListTile(
               title: _listOfData[i].title!,
               haveTrailingIcon: true,

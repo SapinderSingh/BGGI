@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
     ),
   ];
 
-  _checkInternet(BuildContext context) async {
+  Future<void> _checkInternet(BuildContext context) async {
     try {
       await InternetAddress.lookup('example.com');
     } on SocketException catch (_) {

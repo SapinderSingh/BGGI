@@ -16,7 +16,9 @@ class DeveloperScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width / 44.1,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

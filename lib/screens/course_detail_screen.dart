@@ -15,9 +15,7 @@ class CourseDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Course _course = Provider.of<Course>(context, listen: false);
-    final Course _requiredCourse = _course.listOfCourses.firstWhere(
-      (course) => title == course.title,
-    );
+    final Course _requiredCourse = _course.findCourseByTitle(title);
     return Scaffold(
       appBar: customAppBar(context, title: _requiredCourse.nickname!),
       body: ListView(

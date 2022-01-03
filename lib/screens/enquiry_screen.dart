@@ -15,11 +15,11 @@ class EnquiryScreen extends StatefulWidget {
 
 class _EnquiryScreenState extends State<EnquiryScreen> {
   bool _isLoading = false;
+  final GlobalKey<FormState> _formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     String? _name, _email, _phone, _message;
-    final GlobalKey<FormState> _formKey = GlobalKey();
 
     final _emailValidator = MultiValidator([
       RequiredValidator(errorText: 'Email is required'),
@@ -117,62 +117,15 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
                   ),
                   dynamicHeightSizedBox(context, height: 20),
                   ElevatedButton(
-                    onPressed: !_isLoading
-                        ? () async {
-                            setState(() {
-                              _isLoading = true;
-                            });
-                            String _deviceName = await getDeviceName();
-                            _formKey.currentState!.save();
-                            bool _isValid = _formKey.currentState!.validate();
-                            if (_isValid) {
-                              CloudFirestoreService().addEnquiry(
-                                name: _name!,
-                                email: _email!,
-                                phoneNumber: _phone!,
-                                message: _message!,
-                                deviceName: _deviceName,
-                              );
-
-                              ScaffoldMessenger.of(context).showMaterialBanner(
-                                MaterialBanner(
-                                  content: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 8.0,
-                                    ),
-                                    child: bodyText1WithoutPadding(
-                                      context,
-                                      'Hey ${_name!.split(" ")[0]}, Your query submitted successfully! We will contact you soon.',
-                                    ),
-                                  ),
-                                  actions: [
-                                    ElevatedButton(
-                                      onPressed: () =>
-                                          ScaffoldMessenger.of(context)
-                                              .hideCurrentMaterialBanner(),
-                                      child: const Text('Okay'),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            } else {
-                              setState(() {
-                                _isLoading = false;
-                              });
-                              showDialog(
-                                context: context,
-                                builder: (_) => const CustomErrorDialog(
-                                  contentText:
-                                      'Please fill all the fields correctly.',
-                                ),
-                              );
-                            }
-                            setState(() {
-                              _isLoading = false;
-                            });
-                          }
-                        : null,
                     child: const Text('Submit'),
+                    onPressed: _isLoading
+                        ? null
+                        : () => _saveForm(
+                              email: _email,
+                              message: _message,
+                              name: _name,
+                              phone: _phone,
+                            ),
                   ),
                 ],
               ),
@@ -181,6 +134,58 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _saveForm({
+    String? name,
+    String? email,
+    String? phone,
+    String? message,
+  }) async {
+    setState(() {
+      _isLoading = true;
+    });
+    String _deviceName = await getDeviceName();
+    _formKey.currentState!.save();
+    bool _isValid = _formKey.currentState!.validate();
+    if (_isValid) {
+      CloudFirestoreService().addEnquiry(
+        name: name!,
+        email: email!,
+        phoneNumber: phone!,
+        message: message!,
+        deviceName: _deviceName,
+      );
+
+      ScaffoldMessenger.of(context).showMaterialBanner(
+        MaterialBanner(
+          content: bodyText1(
+            'Hey ${name.split(" ")[0]}, Your query submitted successfully! We will contact you soon.',
+            context,
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () =>
+                  ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
+              child: const Text('Okay'),
+            ),
+          ],
+        ),
+      );
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+      showDialog(
+        context: context,
+        builder: (_) => const CustomErrorDialog(
+          contentText: 'Please fill all the fields correctly.',
+        ),
+      );
+    }
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   Future<String> getDeviceName() async {
